@@ -1,0 +1,29 @@
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Logs
+logs/
+*.log
+
+# Vector databases & temporary uploaded test documents
+Vector_DB/
+Vector_DB_Test/
+Vector_DB_Chat_Test/
+Chroma_Integration_Test/
+Uploaded_document/
+Uploaded_document_Chat_Test/
+
+# OS / IDE generated
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

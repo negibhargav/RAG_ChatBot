@@ -1,0 +1,573 @@
+{
+  "config": {
+    "top_k": 3,
+    "score_threshold": 0.4
+  },
+  "summary": {
+    "total_queries": 20,
+    "answerable_count": 14,
+    "unanswerable_count": 6,
+    "evaluable_count": 13,
+    "grounded": 11,
+    "partially_grounded": 2,
+    "ungrounded": 0,
+    "no_factual_claims": 1,
+    "correct_abstention": 6,
+    "false_answer": 0,
+    "hallucination_unanswerable": 0,
+    "groundedness_rate": 0.8461538461538461,
+    "partial_grounding_rate": 0.15384615384615385,
+    "hallucination_rate": 0.0,
+    "claim_support_rate": 0.875,
+    "unsupported_claim_rate": 0.125,
+    "correct_abstention_rate": 1.0,
+    "false_answer_rate": 0.0,
+    "total_claims_evaluated": 24,
+    "total_supported_claims": 21,
+    "total_partial_claims": 0,
+    "total_unsupported_claims": 3
+  },
+  "per_query": [
+    {
+      "test_id": "q001",
+      "question": "What is Bhupender's educational background?",
+      "answer": "Bhupender Singh Negi has completed a B.Tech in Artificial Intelligence and Data Science from Vivekananda Institute of Professional Studies, with graduation expected in 2025. Relevant coursework includes Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), and Object-Oriented Programming (OOP).",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.5904\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_17\nRelevance Score: 0.5220\n\nEDUCATION\nB.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professional Studies Graduation: 2025\nRelevant Coursework: Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), Object-Oriented Programming (OOP).\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_1\nRelevance Score: 0.5133\n\nPROFESSIONAL SUMMARY\n",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 3,
+      "supported_claims": 3,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "Bhupender Singh Negi has completed a B.Tech in Artificial Intelligence and Data Science from Vivekananda Institute of Professional Studies.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_17",
+          "reason": "The context directly states 'B.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professional Studies'.",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "Bhupender Singh Negi's graduation is expected in 2025.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_17",
+          "reason": "The relevant coursework mentions 'B.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professional Studies Graduation: 2025'.",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "Relevant coursework includes Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), and Object-Oriented Programming (OOP).",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_17",
+          "reason": "The context directly mentions relevant coursework including Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), and Object-Oriented Programming (OOP).",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q002",
+      "question": "Where did Bhupender complete his B.Tech degree?",
+      "answer": "Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.6612\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_17\nRelevance Score: 0.6076\n\nEDUCATION\nB.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professional Studies Graduation: 2025\nRelevant Coursework: Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), Object-Oriented Programming (OOP).\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_13\nRelevance Score: 0.5376\n\nTECHNICAL PROJECTS\n",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 1,
+      "supported_claims": 1,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_17",
+          "reason": "The context mentions 'B.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professional Studies Graduation: 2025'.",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q003",
+      "question": "What is Bhupender's current role at JLL?",
+      "answer": "BHUPENDER SINGH NEGI's current role at JLL is Analyst.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.6800\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_5\nRelevance Score: 0.6684\n\nPROFESSIONAL EXPERIENCE\nJones Lang LaSalle (JLL) - Analyst Jul 2025 - Present\nDelhi/NCR, India\nDesign and implement technology solutions for enterprise real estate clients, translating business problems into technical designs spanning QA/QC automation, utility data auditing, and invoice processing.\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_20\nRelevance Score: 0.6222\n\n\u2022Lean Certified (JLL) - completed; Six Sigma Green Belt - in progress.\n",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 1,
+      "supported_claims": 1,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "BHUPENDER SINGH NEGI's current role at JLL is Analyst",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_5",
+          "reason": "The context states that BHUPENDER SINGH NEGI has a current role at JLL as an Analyst.",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q004",
+      "question": "What was Bhupender's role at Tecraki Tech Solutions?",
+      "answer": "Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions, working there from December 2023 to June 2025.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.7071\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_9\nRelevance Score: 0.6856\n\nTecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025\nDelhi/NCR, India\n\u2022Performance Engineering: Reduced per-request API latency by 50% (6.0s \u2192 3.0s) by architecting a stateful multi-agent RAG system in Python with custom retrieval optimization and semantic memory caching.\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_13\nRelevance Score: 0.5775\n\nTECHNICAL PROJECTS\n",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 2,
+      "supported_claims": 2,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_9",
+          "reason": "The context contains a chunk that directly states 'Tecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025'.",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "Bhupender Singh Neogi worked there from December 2023 to June 2025",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_9",
+          "reason": "The relevant chunk states 'Tecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025' which directly supports the claim.",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q005",
+      "question": "How much time did the AI Invoice Processing SOP cut processing time?",
+      "answer": "The AI Invoice Processing SOP cut the processing time from 9 minutes to 2 minutes.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_8\nRelevance Score: 0.9212\n\n\u2022AI Invoice Processing: Analyzed the existing workflow with client stakeholders and designed an SOP that cut per-invoice processing time from 9 minutes to 2 minutes.\n\u2022Impact: 500+ hours saved to date; 2,000+ hours/year in pipeline, closing next month.\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_6\nRelevance Score: 0.6595\n\n\u2022Automated QA/QC System: Analyzed a recurring business process end-to-end and implemented an automation solution that eliminated 5 months/year of manual QC work, applying structured testing and QA procedures throughout development.\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_7\nRelevance Score: 0.6562\n\n\u2022AutoAudit AI: Designed and built an LLM agent with tool-calling and MCP-exposed tools for utility data root-cause analysis across 6 accounts and 1,000+ properties - replacing 1 FTE/year with same-day automated health checks (in approval).\n",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 1,
+      "supported_claims": 1,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "The AI Invoice Processing SOP cut the processing time from 9 minutes to 2 minutes.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_8",
+          "reason": "The relevant chunk directly states 'AI Invoice Processing: Analyzed the existing workflow with client stakeholders and designed an SOP that cut per-invoice processing time from 9 minutes to 2 minutes.'",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q006",
+      "question": "What is MedTextVision and what was its impact?",
+      "answer": "MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI. Its impact is an improvement of entity-extraction F1 by 15% across 10,000+ records.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_10\nRelevance Score: 0.7620\n\n\u2022MedTextVision - Document AI: Built a deep-learning OCR pipeline extracting structured data from unstructured medical documents, improving entity-extraction F1 by 15% across 10,000+ records.\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_11\nRelevance Score: 0.7224\n\n\u2022Vision-Enabled Healthcare Chatbot: Built a multi-modal NLP + computer vision assistant that parses uploaded prescriptions/vitals images to resolve patient queries, cutting support workload through automated self-service.\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_22\nRelevance Score: 0.5980\n\nMachine Learning & Computer Vision: OpenCV, Deep Learning OCR, Statistical Modeling, Predictive Analytics, Algorithms & Data Structures, Evaluation Metrics (F1-Score, Precision)\n",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 2,
+      "supported_claims": 2,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI.",
+          "status": "SUPPORTED",
+          "evidence": "[Source 1]\n\u2022MedTextVision - Document AI: Built a deep-learning OCR pipeline extracting structured data from unstructured medical documents, improving entity-extraction F1 by 15% across 10,000+ records.",
+          "reason": "The context directly states that MedTextVision is a deep-learning OCR pipeline developed by Document AI.",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "MedTextVision improves entity-extraction F1 by 15% across 10,000+ records.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_10",
+          "reason": "The context directly states 'MedTextVision - Document AI: Built a deep-learning OCR pipeline extracting structured data from unstructured medical documents, improving entity-extraction F1 by 15% across 10,000+ records.'",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q007",
+      "question": "What details are given for the AutoAudit AI system?",
+      "answer": "The AutoAudit AI system is designed and built to perform LLM (Large Language Model) agent utility data root-cause analysis across 6 accounts and 1,000+ properties. It replaces one full-time employee (FTE) per year with same-day automated health checks (in approval).",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_7\nRelevance Score: 0.8011\n\n\u2022AutoAudit AI: Designed and built an LLM agent with tool-calling and MCP-exposed tools for utility data root-cause analysis across 6 accounts and 1,000+ properties - replacing 1 FTE/year with same-day automated health checks (in approval).\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_21\nRelevance Score: 0.6646\n\nTECHNICAL SKILLS\nGenerative AI & Agentic Systems: LLM Fine-Tuning, Advanced RAG, Multi-Agent Orchestration (LangGraph), MCP (Model Context Protocol), AWS AgentCore & Strands, Semantic Pruning, Prompt Engineering, Token Optimization\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_11\nRelevance Score: 0.6438\n\n\u2022Vision-Enabled Healthcare Chatbot: Built a multi-modal NLP + computer vision assistant that parses uploaded prescriptions/vitals images to resolve patient queries, cutting support workload through automated self-service.\n",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 2,
+      "supported_claims": 2,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "The AutoAudit AI system is designed and built to perform LLM agent utility data root-cause analysis across 6 accounts and 1,000+ properties.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_7",
+          "reason": "The relevant chunk directly supports the claim with the exact details provided.",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "It replaces one full-time employee (FTE) per year with same-day automated health checks.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_7",
+          "reason": "The context directly states 'AutoAudit AI: Designed and built an LLM agent with tool-calling and MCP-exposed tools for utility data root-cause analysis across 6 accounts and 1,000+ properties - replacing 1 FTE/year with same-day automated health checks.'",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q008",
+      "question": "What rank did Bhupender finish in the Amazon ML Hackathon?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_19\nRelevance Score: 0.7335\n\nAWARDS & CERTIFICATIONS\n\u2022Top 10% Finisher - Amazon ML Hackathon 2024; 3rd Position - Gen AI Hackathon (Epoch), IIIT Delhi (2025).\n\u2022International Robotics Representative - Team India, RoboCup Japan 2021 (real-time edge computing & software-hardware coordination).\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_16\nRelevance Score: 0.7150\n\n\u2022Product Identifier Model (Amazon ML Hackathon): Built a distributed multi-modal indexing pipeline (Python, OCR, Pinecone, FastAPI) processing 1,000+ files in parallel, automating entity-value mapping using algorithmic data structures for under-documented e-commerce SKUs.\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.6826\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n",
+      "answerable": true,
+      "classification": "NO_FACTUAL_CLAIMS",
+      "total_claims": 0,
+      "supported_claims": 0,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "REFUSAL_DETECTED"
+    },
+    {
+      "test_id": "q009",
+      "question": "Which international robotics competition did Bhupender represent Team India in?",
+      "answer": "Bhupender Singh Negi represented Team India in the RoboCup Japan 2021 international robotics competition.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.6522\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_19\nRelevance Score: 0.6451\n\nAWARDS & CERTIFICATIONS\n\u2022Top 10% Finisher - Amazon ML Hackathon 2024; 3rd Position - Gen AI Hackathon (Epoch), IIIT Delhi (2025).\n\u2022International Robotics Representative - Team India, RoboCup Japan 2021 (real-time edge computing & software-hardware coordination).\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_9\nRelevance Score: 0.5711\n\nTecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025\nDelhi/NCR, India\n\u2022Performance Engineering: Reduced per-request API latency by 50% (6.0s \u2192 3.0s) by architecting a stateful multi-agent RAG system in Python with custom retrieval optimization and semantic memory caching.\n",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 1,
+      "supported_claims": 1,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "Bhupender Singh Negi represented Team India in the RoboCup Japan 2021 international robotics competition.",
+          "status": "SUPPORTED",
+          "evidence": "[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_19\nRelevance Score: 0.6451\nAWARDS & CERTIFICATIONS\n\u2022International Robotics Representative - Team India, RoboCup Japan 2021 (real-time edge computing & software-hardware coordination).",
+          "reason": "The context directly states that Bhupender Singh Negi was an 'International Robotics Representative - Team India, RoboCup Japan 2021'.",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q010",
+      "question": "What is Bhupender's contact number and email address?",
+      "answer": "Bhupender Singh Neogi's contact number is +91 84480 93891 and his email address is bhupendernegi.ai@gmail.com.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.7256\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_9\nRelevance Score: 0.5584\n\nTecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025\nDelhi/NCR, India\n\u2022Performance Engineering: Reduced per-request API latency by 50% (6.0s \u2192 3.0s) by architecting a stateful multi-agent RAG system in Python with custom retrieval optimization and semantic memory caching.\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_16\nRelevance Score: 0.5166\n\n\u2022Product Identifier Model (Amazon ML Hackathon): Built a distributed multi-modal indexing pipeline (Python, OCR, Pinecone, FastAPI) processing 1,000+ files in parallel, automating entity-value mapping using algorithmic data structures for under-documented e-commerce SKUs.\n",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 2,
+      "supported_claims": 2,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "Bhupender Singh Neogi's contact number is +91 84480 93891",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_0",
+          "reason": "The contact number +91 84480 93891 is mentioned in the retrieved context.",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "Bhupender Singh Neogi's email address is bhupendernegi.ai@gmail.com",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_0: BHUPENDER SINGH NEGI | bhupendernegi.ai@gmail.com",
+          "reason": "The email address bhupendernegi.ai@gmail.com is explicitly mentioned in the context.",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q011",
+      "question": "What certifications does Bhupender hold or is currently working on?",
+      "answer": "Bhupender Singh Neogi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.6856\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_9\nRelevance Score: 0.6061\n\nTecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025\nDelhi/NCR, India\n\u2022Performance Engineering: Reduced per-request API latency by 50% (6.0s \u2192 3.0s) by architecting a stateful multi-agent RAG system in Python with custom retrieval optimization and semantic memory caching.\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_20\nRelevance Score: 0.5869\n\n\u2022Lean Certified (JLL) - completed; Six Sigma Green Belt - in progress.\n",
+      "answerable": true,
+      "classification": "PARTIALLY_GROUNDED",
+      "total_claims": 2,
+      "supported_claims": 1,
+      "partial_claims": 0,
+      "unsupported_claims": 1,
+      "claims": [
+        {
+          "claim": "Bhupender Singh Neogi holds a Lean Certified (JLL) certification.",
+          "status": "UNSUPPORTED",
+          "evidence": "doc_test_setup_chunk_0:6, doc_test_setup_chunk_9:6, doc_test_setup_chunk_20:6",
+          "reason": "The context does not mention any certification related to Lean Certified (JLL).",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "Bhupender Singh Neogi is working on obtaining a Six Sigma Green Belt certification.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_9",
+          "reason": "The context mentions that Bhupender Singh Neogi is 'in progress' with a Six Sigma Green Belt certification.",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q012",
+      "question": "Which programming languages and databases does Bhupender have skills in?",
+      "answer": "Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_23\nRelevance Score: 0.6823\n\nLanguages & Frameworks: Python, SQL, RDBMS, C++, JavaScript/TypeScript, Node.js, Next.js, FastAPI, Excel VBA, LangChain, LlamaIndex\nDatabases, Cloud & Big Data: PostgreSQL, MongoDB, ChromaDB, Pinecone, Redis, AWS, Azure, Google Cloud Platform (GCP), Big Data Concepts, Docker, Kubernetes, CI/CD\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.6630\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_16\nRelevance Score: 0.6284\n\n\u2022Product Identifier Model (Amazon ML Hackathon): Built a distributed multi-modal indexing pipeline (Python, OCR, Pinecone, FastAPI) processing 1,000+ files in parallel, automating entity-value mapping using algorithmic data structures for under-documented e-commerce SKUs.\n",
+      "answerable": true,
+      "classification": "PARTIALLY_GROUNDED",
+      "total_claims": 3,
+      "supported_claims": 1,
+      "partial_claims": 0,
+      "unsupported_claims": 2,
+      "claims": [
+        {
+          "claim": "Bhupender Singh Negi has skills in Python",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_0:Relevance Score: 0.6630\nChunk: BHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n(doc_test_setup_chunk_16:Relevance Score: 0.6284\nChunk: Product Identifier Model (Amazon ML Hackathon): Built a distributed multi-modal indexing pipeline (Python, OCR, Pinecone, FastAPI) processing 1,000+ files in parallel, automating entity-value mapping using algorithmic data structures for under-documented e-commerce SKUs.)",
+          "reason": "The context mentions that Bhupender Singh Negi has skills in Python through a specific project he worked on.",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "Bhupender Singh Negi has skills in SQL",
+          "status": "UNSUPPORTED",
+          "evidence": "doc_test_setup_chunk_0, Relevance Score: 0.6630",
+          "reason": "The only relevant chunk mentions his skills in Python, SQL, RDBMS, C++, JavaScript/TypeScript, Node.js, Next.js, FastAPI, Excel VBA, LangChain, LlamaIndex, PostgreSQL, MongoDB, ChromaDB, Pinecone, AWS, Azure, Google Cloud Platform (GCP), Big Data Concepts, Docker, Kubernetes, CI/CD, but does not mention SQL skills.",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "Bhupender Singh Negi has skills in MongoDB",
+          "status": "UNSUPPORTED",
+          "evidence": "doc_test_setup_chunk_0:Relevance Score: 0.6630",
+          "reason": "The only relevant chunk to Bhupender Singh Negi does not mention any skills or experience with MongoDB.",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q013",
+      "question": "Summarize Bhupender's professional experience as a technology professional.",
+      "answer": "BHUPENDER SINGH NEGI is a Business Technology Solutions AI/ML Engineer based in Delhi/NCR, India. He has hands-on experience in translating complex business requirements into effective technical designs for enterprise clients.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.7062\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_1\nRelevance Score: 0.6833\n\nPROFESSIONAL SUMMARY\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_2\nRelevance Score: 0.6627\n\nTechnology solutions professional with hands-on experience translating complex business requirements into effective technical designs for enterprise clients. ",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 2,
+      "supported_claims": 2,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "BHUPENDER SINGH NEGI is a Business Technology Solutions AI/ML Engineer based in Delhi/NCR, India.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_0",
+          "reason": "The chunk states 'BHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India' which directly supports the claim.",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "BHUPENDER SINGH NEGI has hands-on experience in translating complex business requirements into effective technical designs for enterprise clients.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_2",
+          "reason": "The chunk states 'Technology solutions professional with hands-on experience translating complex business requirements into effective technical designs for enterprise clients.'",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q014",
+      "question": "What is the Workday Analyst project details?",
+      "answer": "The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules. A Semantic Pruning algorithm was also designed to prevent token explosion and reduce API overhead.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_14\nRelevance Score: 0.7361\n\n\u2022Workday Analyst - Agentic AI (Personal Project): Architected a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules; designed a Semantic Pruning algorithm to prevent token explosion and reduce API overhead under \n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_1\nRelevance Score: 0.6635\n\nPROFESSIONAL SUMMARY\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_13\nRelevance Score: 0.6212\n\nTECHNICAL PROJECTS\n",
+      "answerable": true,
+      "classification": "GROUNDED",
+      "total_claims": 2,
+      "supported_claims": 2,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [
+        {
+          "claim": "The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_14",
+          "reason": "The claim is directly supported by the relevance score and content of the chunk in doc_test_setup_chunk_14.",
+          "evaluation_method": "SLM_JUDGE"
+        },
+        {
+          "claim": "A Semantic Pruning algorithm was designed to prevent token explosion and reduce API overhead.",
+          "status": "SUPPORTED",
+          "evidence": "doc_test_setup_chunk_14",
+          "reason": "The chunk mentions 'designed a Semantic Pruning algorithm to prevent token explosion and reduce API overhead under'.",
+          "evaluation_method": "SLM_JUDGE"
+        }
+      ],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "SLM_EXTRACTOR"
+    },
+    {
+      "test_id": "q015",
+      "question": "What is the author's current annual salary?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_1\nRelevance Score: 0.5963\n\nPROFESSIONAL SUMMARY\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_14\nRelevance Score: 0.5016\n\n\u2022Workday Analyst - Agentic AI (Personal Project): Architected a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules; designed a Semantic Pruning algorithm to prevent token explosion and reduce API overhead under \n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_5\nRelevance Score: 0.4786\n\nPROFESSIONAL EXPERIENCE\nJones Lang LaSalle (JLL) - Analyst Jul 2025 - Present\nDelhi/NCR, India\nDesign and implement technology solutions for enterprise real estate clients, translating business problems into technical designs spanning QA/QC automation, utility data auditing, and invoice processing.\n",
+      "answerable": false,
+      "classification": "CORRECT_ABSTENTION",
+      "total_claims": 0,
+      "supported_claims": 0,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "REFUSAL_DETECTED"
+    },
+    {
+      "test_id": "q016",
+      "question": "What is Bhupender's favorite football team?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_0\nRelevance Score: 0.5331\n\nBHUPENDER SINGH NEGI\nBusiness Technology Solutions | AI/ML Engineer\nDelhi/NCR, India | +91 84480 93891 | bhupendernegi.ai@gmail.com | LinkedIn | GitHub | LeetCode\n\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_5\nRelevance Score: 0.4122\n\nPROFESSIONAL EXPERIENCE\nJones Lang LaSalle (JLL) - Analyst Jul 2025 - Present\nDelhi/NCR, India\nDesign and implement technology solutions for enterprise real estate clients, translating business problems into technical designs spanning QA/QC automation, utility data auditing, and invoice processing.\n",
+      "answerable": false,
+      "classification": "CORRECT_ABSTENTION",
+      "total_claims": 0,
+      "supported_claims": 0,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "REFUSAL_DETECTED"
+    },
+    {
+      "test_id": "q017",
+      "question": "What are the listed KPIs?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_1\nRelevance Score: 0.6145\n\nPROFESSIONAL SUMMARY\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_24\nRelevance Score: 0.5795\n\nProductivity & Methodologies: GitHub Copilot, SQL Generation Tools, Lean, Six Sigma Green Belt (In Progress), 5S, Agile/Scrum\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_7\nRelevance Score: 0.5684\n\n\u2022AutoAudit AI: Designed and built an LLM agent with tool-calling and MCP-exposed tools for utility data root-cause analysis across 6 accounts and 1,000+ properties - replacing 1 FTE/year with same-day automated health checks (in approval).\n",
+      "answerable": false,
+      "classification": "CORRECT_ABSTENTION",
+      "total_claims": 0,
+      "supported_claims": 0,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "REFUSAL_DETECTED"
+    },
+    {
+      "test_id": "q018",
+      "question": "What is the late arrival threshold?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_9\nRelevance Score: 0.5903\n\nTecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025\nDelhi/NCR, India\n\u2022Performance Engineering: Reduced per-request API latency by 50% (6.0s \u2192 3.0s) by architecting a stateful multi-agent RAG system in Python with custom retrieval optimization and semantic memory caching.\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_8\nRelevance Score: 0.5491\n\n\u2022AI Invoice Processing: Analyzed the existing workflow with client stakeholders and designed an SOP that cut per-invoice processing time from 9 minutes to 2 minutes.\n\u2022Impact: 500+ hours saved to date; 2,000+ hours/year in pipeline, closing next month.\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_12\nRelevance Score: 0.5350\n\n\u2022Deployed scalable REST APIs for production ML/CV inference and established full-lifecycle cloud monitoring (latency, throughput, drift detection), following agile development and unit-testing practices.\n",
+      "answerable": false,
+      "classification": "CORRECT_ABSTENTION",
+      "total_claims": 0,
+      "supported_claims": 0,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "REFUSAL_DETECTED"
+    },
+    {
+      "test_id": "q019",
+      "question": "What is the normal working duration?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_8\nRelevance Score: 0.6382\n\n\u2022AI Invoice Processing: Analyzed the existing workflow with client stakeholders and designed an SOP that cut per-invoice processing time from 9 minutes to 2 minutes.\n\u2022Impact: 500+ hours saved to date; 2,000+ hours/year in pipeline, closing next month.\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_6\nRelevance Score: 0.5984\n\n\u2022Automated QA/QC System: Analyzed a recurring business process end-to-end and implemented an automation solution that eliminated 5 months/year of manual QC work, applying structured testing and QA procedures throughout development.\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_13\nRelevance Score: 0.5675\n\nTECHNICAL PROJECTS\n",
+      "answerable": false,
+      "classification": "CORRECT_ABSTENTION",
+      "total_claims": 0,
+      "supported_claims": 0,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "REFUSAL_DETECTED"
+    },
+    {
+      "test_id": "q020",
+      "question": "What are the submission requirements for the code assignment?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "context_text": "[Source 1]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_1\nRelevance Score: 0.6265\n\nPROFESSIONAL SUMMARY\n\n\n[Source 2]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_13\nRelevance Score: 0.6057\n\nTECHNICAL PROJECTS\n\n\n[Source 3]\nDocument: test.txt\nChunk ID: doc_test_setup_chunk_9\nRelevance Score: 0.5752\n\nTecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025\nDelhi/NCR, India\n\u2022Performance Engineering: Reduced per-request API latency by 50% (6.0s \u2192 3.0s) by architecting a stateful multi-agent RAG system in Python with custom retrieval optimization and semantic memory caching.\n",
+      "answerable": false,
+      "classification": "CORRECT_ABSTENTION",
+      "total_claims": 0,
+      "supported_claims": 0,
+      "partial_claims": 0,
+      "unsupported_claims": 0,
+      "claims": [],
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "extraction_method": "REFUSAL_DETECTED"
+    }
+  ]
+}

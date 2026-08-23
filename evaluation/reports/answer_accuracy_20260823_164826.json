@@ -1,0 +1,510 @@
+{
+  "config": {
+    "top_k": 3,
+    "score_threshold": 0.4
+  },
+  "summary": {
+    "total_queries": 20,
+    "answerable_count": 14,
+    "unanswerable_count": 6,
+    "correct": 12,
+    "partially_correct": 1,
+    "incorrect": 1,
+    "answer_accuracy": 0.8571428571428571,
+    "partial_accuracy_rate": 0.07142857142857142,
+    "incorrect_rate": 0.07142857142857142,
+    "correct_abstention": 6,
+    "hallucinated_answers": 0,
+    "unsafe_abstentions": 0,
+    "correct_abstention_rate": 1.0,
+    "hallucination_rate": 0.0,
+    "end_to_end_success": 12,
+    "generation_failures": 2,
+    "retrieval_failures": 0
+  },
+  "per_query": [
+    {
+      "test_id": "q001",
+      "question": "What is Bhupender's educational background?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "Bhupender Singh Negi's educational background includes a B.Tech in Artificial Intelligence and Data Science from the Vivekananda Institute of Professional Studies, with graduation expected in 2025. Relevant coursework includes Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), and Object-Oriented Programming (OOP).",
+      "expected_facts": [
+        "B.Tech in Artificial Intelligence and Data Science",
+        "Vivekananda Institute of Professional Studies"
+      ],
+      "fact_results": [
+        {
+          "fact": "B.Tech in Artificial Intelligence and Data Science",
+          "supported": true
+        },
+        {
+          "fact": "Vivekananda Institute of Professional Studies",
+          "supported": true
+        }
+      ],
+      "facts_supported": 2,
+      "facts_expected": 2,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q002",
+      "question": "Where did Bhupender complete his B.Tech degree?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.",
+      "expected_facts": [
+        "Vivekananda Institute of Professional Studies"
+      ],
+      "fact_results": [
+        {
+          "fact": "Vivekananda Institute of Professional Studies",
+          "supported": true
+        }
+      ],
+      "facts_supported": 1,
+      "facts_expected": 1,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q003",
+      "question": "What is Bhupender's current role at JLL?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "BHUPENDER SINGH NEGI's current role at JLL is Analyst. This information is derived from the professional experience chunk in Source 2, which states \"Jones Lang LaSalle (JLL) - Analyst Jul 2025 - Present\".",
+      "expected_facts": [
+        "Bhupender works as an Analyst at Jones Lang LaSalle",
+        "His role is at JLL"
+      ],
+      "fact_results": [
+        {
+          "fact": "Bhupender works as an Analyst at Jones Lang LaSalle",
+          "supported": true
+        },
+        {
+          "fact": "His role is at JLL",
+          "supported": true
+        }
+      ],
+      "facts_supported": 2,
+      "facts_expected": 2,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q004",
+      "question": "What was Bhupender's role at Tecraki Tech Solutions?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions from December 2023 to June 2025.",
+      "expected_facts": [
+        "Bhupender was a Founding ML Engineer at Tecraki Tech Solutions"
+      ],
+      "fact_results": [
+        {
+          "fact": "Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions from December 2023 to June 2025",
+          "supported": true
+        }
+      ],
+      "facts_supported": 1,
+      "facts_expected": 1,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q005",
+      "question": "How much time did the AI Invoice Processing SOP cut processing time?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "The AI Invoice Processing SOP cut the per-invoice processing time from 9 minutes to 2 minutes.",
+      "expected_facts": [
+        "AI Invoice Processing SOP reduced processing time from 9 minutes to 2 minutes"
+      ],
+      "fact_results": [
+        {
+          "fact": "AI Invoice Processing SOP reduced processing time from 9 minutes to 2 minutes",
+          "supported": true
+        }
+      ],
+      "facts_supported": 1,
+      "facts_expected": 1,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q006",
+      "question": "What is MedTextVision and what was its impact?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI. Its impact is an improvement of entity-extraction F1 by 15% across 10,000+ records.",
+      "expected_facts": [
+        "MedTextVision is a deep-learning OCR pipeline",
+        "MedTextVision improved entity-extraction F1 by 15%"
+      ],
+      "fact_results": [
+        {
+          "fact": "MedTextVision is a deep-learning OCR pipeline",
+          "supported": true
+        },
+        {
+          "fact": "MedTextVision improved entity-extraction F1 by 15%",
+          "supported": true
+        }
+      ],
+      "facts_supported": 2,
+      "facts_expected": 2,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q007",
+      "question": "What details are given for the AutoAudit AI system?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "The AutoAudit AI system is designed and built to perform LLM (Large Language Model) agent utility data root-cause analysis across 6 accounts and 1,000+ properties. It replaces one full-time employee (FTE) per year with same-day automated health checks (in approval).",
+      "expected_facts": [
+        "AutoAudit AI is an LLM agent with tool-calling",
+        "AutoAudit AI uses MCP-exposed tools for utility data root-cause analysis"
+      ],
+      "fact_results": [
+        {
+          "fact": "AutoAudit AI is an LLM agent with tool-calling",
+          "supported": true
+        },
+        {
+          "fact": "AutoAudit AI uses MCP-exposed tools for utility data root-cause analysis",
+          "supported": true
+        }
+      ],
+      "facts_supported": 2,
+      "facts_expected": 2,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q008",
+      "question": "What rank did Bhupender finish in the Amazon ML Hackathon?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "expected_facts": [
+        "Bhupender finished in the top 10% in the Amazon ML Hackathon 2024"
+      ],
+      "fact_results": [
+        {
+          "fact": "Bhupender finished in the top 10% in the Amazon ML Hackathon 2024",
+          "supported": false
+        }
+      ],
+      "facts_supported": 0,
+      "facts_expected": 1,
+      "accuracy_class": "INCORRECT",
+      "failure_mode": "GENERATION_FAILURE",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q009",
+      "question": "Which international robotics competition did Bhupender represent Team India in?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "Bhupender Singh Negi represented Team India in the RoboCup Japan 2021 international robotics competition.",
+      "expected_facts": [
+        "Bhupender represented Team India at RoboCup Japan 2021"
+      ],
+      "fact_results": [
+        {
+          "fact": "Bhupender represented Team India at RoboCup Japan 2021",
+          "supported": true
+        }
+      ],
+      "facts_supported": 1,
+      "facts_expected": 1,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q010",
+      "question": "What is Bhupender's contact number and email address?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "Bhupender Singh Neogi's contact number is +91 84480 93891 and his email address is bhupendernegi.ai@gmail.com.",
+      "expected_facts": [
+        "Bhupender's phone number is +91 84480 93891",
+        "Bhupender's email address is bhupendernegi.ai@gmail.com"
+      ],
+      "fact_results": [
+        {
+          "fact": "Bhupender's phone number is +91 84480 93891",
+          "supported": true
+        },
+        {
+          "fact": "Bhupender's email address is bhupendernegi.ai@gmail.com",
+          "supported": true
+        }
+      ],
+      "facts_supported": 2,
+      "facts_expected": 2,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q011",
+      "question": "What certifications does Bhupender hold or is currently working on?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "Bhupender Singh Negi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.",
+      "expected_facts": [
+        "Bhupender is Lean Certified from JLL",
+        "Bhupender is pursuing or holds Six Sigma Green Belt"
+      ],
+      "fact_results": [
+        {
+          "fact": "Bhupender is Lean Certified from JLL",
+          "supported": true
+        },
+        {
+          "fact": "Bhupender is pursuing or holds Six Sigma Green Belt",
+          "supported": true
+        }
+      ],
+      "facts_supported": 2,
+      "facts_expected": 2,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q012",
+      "question": "Which programming languages and databases does Bhupender have skills in?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.",
+      "expected_facts": [
+        "Bhupender knows Python and SQL",
+        "Bhupender has experience with PostgreSQL and MongoDB"
+      ],
+      "fact_results": [
+        {
+          "fact": "Bhupender knows Python and SQL",
+          "supported": true
+        },
+        {
+          "fact": "Bhupender has experience with PostgreSQL and MongoDB",
+          "supported": true
+        }
+      ],
+      "facts_supported": 2,
+      "facts_expected": 2,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q013",
+      "question": "Summarize Bhupender's professional experience as a technology professional.",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "BHUPENDER SINGH NEGI is a Business Technology Solutions professional with hands-on experience translating complex business requirements into effective technical designs for enterprise clients.",
+      "expected_facts": [
+        "Bhupender translates complex business requirements into technical designs",
+        "Bhupender is experienced in AI and ML engineering"
+      ],
+      "fact_results": [
+        {
+          "fact": "Bhupender translates complex business requirements into technical designs",
+          "supported": true
+        },
+        {
+          "fact": "Bhupender is experienced in AI and ML engineering",
+          "supported": false
+        }
+      ],
+      "facts_supported": 1,
+      "facts_expected": 2,
+      "accuracy_class": "PARTIALLY_CORRECT",
+      "failure_mode": "GENERATION_FAILURE",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q014",
+      "question": "What is the Workday Analyst project details?",
+      "answerable": true,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules. A Semantic Pruning algorithm was also designed to prevent token explosion and reduce API overhead.",
+      "expected_facts": [
+        "Workday Analyst project uses Python, RAG, and MCP",
+        "Workday Analyst project uses Workday APIs"
+      ],
+      "fact_results": [
+        {
+          "fact": "The Workday Analyst project uses Python, RAG, and MCP",
+          "supported": true
+        },
+        {
+          "fact": "The Workday Analyst project uses Workday APIs",
+          "supported": true
+        }
+      ],
+      "facts_supported": 2,
+      "facts_expected": 2,
+      "accuracy_class": "CORRECT",
+      "failure_mode": "END_TO_END_SUCCESS",
+      "evaluation_method": "SLM_JUDGE"
+    },
+    {
+      "test_id": "q015",
+      "question": "What is the author's current annual salary?",
+      "answerable": false,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "expected_facts": [],
+      "fact_results": [],
+      "facts_supported": null,
+      "facts_expected": null,
+      "accuracy_class": "CORRECT_ABSTENTION",
+      "failure_mode": null,
+      "evaluation_method": "ABSTENTION_CLASSIFIER"
+    },
+    {
+      "test_id": "q016",
+      "question": "What is Bhupender's favorite football team?",
+      "answerable": false,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "expected_facts": [],
+      "fact_results": [],
+      "facts_supported": null,
+      "facts_expected": null,
+      "accuracy_class": "CORRECT_ABSTENTION",
+      "failure_mode": null,
+      "evaluation_method": "ABSTENTION_CLASSIFIER"
+    },
+    {
+      "test_id": "q017",
+      "question": "What are the listed KPIs?",
+      "answerable": false,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "expected_facts": [],
+      "fact_results": [],
+      "facts_supported": null,
+      "facts_expected": null,
+      "accuracy_class": "CORRECT_ABSTENTION",
+      "failure_mode": null,
+      "evaluation_method": "ABSTENTION_CLASSIFIER"
+    },
+    {
+      "test_id": "q018",
+      "question": "What is the late arrival threshold?",
+      "answerable": false,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "expected_facts": [],
+      "fact_results": [],
+      "facts_supported": null,
+      "facts_expected": null,
+      "accuracy_class": "CORRECT_ABSTENTION",
+      "failure_mode": null,
+      "evaluation_method": "ABSTENTION_CLASSIFIER"
+    },
+    {
+      "test_id": "q019",
+      "question": "What is the normal working duration?",
+      "answerable": false,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "expected_facts": [],
+      "fact_results": [],
+      "facts_supported": null,
+      "facts_expected": null,
+      "accuracy_class": "CORRECT_ABSTENTION",
+      "failure_mode": null,
+      "evaluation_method": "ABSTENTION_CLASSIFIER"
+    },
+    {
+      "test_id": "q020",
+      "question": "What are the submission requirements for the code assignment?",
+      "answerable": false,
+      "retrieval_success": true,
+      "retrieved_sources": [
+        "test.txt"
+      ],
+      "generated_answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "expected_facts": [],
+      "fact_results": [],
+      "facts_supported": null,
+      "facts_expected": null,
+      "accuracy_class": "CORRECT_ABSTENTION",
+      "failure_mode": null,
+      "evaluation_method": "ABSTENTION_CLASSIFIER"
+    }
+  ]
+}

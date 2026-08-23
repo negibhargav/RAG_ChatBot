@@ -1,0 +1,347 @@
+============================================================
+PHASE 4 -- GROUNDEDNESS & HALLUCINATION EVALUATION
+============================================================
+
+------------------------------------------------------------
+Configuration
+------------------------------------------------------------
+Model:                  qwen2.5:3b (local Ollama)
+Temperature:            0.0 (deterministic)
+Retrieval K:            3
+Relevance Gate:         0.4
+Grounding basis:        Retrieved context only
+
+------------------------------------------------------------
+Overall Metrics
+------------------------------------------------------------
+Total Queries:          20
+  Answerable:           14
+  Unanswerable:         6
+  Evaluable (w/ facts): 13
+
+  Grounded:             11
+  Partially Grounded:   2
+  Ungrounded:           0
+  No Factual Claims:    1
+
+Groundedness Rate:      0.8462
+Partial Grounding Rate: 0.1538
+Hallucination Rate:     0.0000
+
+Total Claims Evaluated: 24
+  Supported:            21
+  Partial:              0
+  Unsupported:          3
+
+Claim Support Rate:     0.8750
+Unsupported Claim Rate: 0.1250
+
+  Correct Abstention:   6
+  False Answer:         0
+  Hallucination (Unans):0
+
+Abstention Rate:        1.0000
+False Answer Rate:      0.0000
+
+------------------------------------------------------------
+FAILED / PARTIALLY FAILED CASES
+------------------------------------------------------------
+[FAIL] q011
+Question:       What certifications does Bhupender hold or is currently working on?
+Classification: PARTIALLY_GROUNDED
+Answer preview: Bhupender Singh Neogi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.
+  [UNSUPPORTED] Bhupender Singh Neogi holds a Lean Certified (JLL) certification.
+  Reason:       The context does not mention any certification related to Lean Certified (JLL).
+----------------------------------------
+[FAIL] q012
+Question:       Which programming languages and databases does Bhupender have skills in?
+Classification: PARTIALLY_GROUNDED
+Answer preview: Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.
+  [UNSUPPORTED] Bhupender Singh Negi has skills in SQL
+  Reason:       The only relevant chunk mentions his skills in Python, SQL, RDBMS, C++, JavaScript/TypeScript, Node.js, Next.js, FastAPI, Excel VBA, LangChain, LlamaIndex, PostgreSQL, MongoDB, ChromaDB, Pinecone, AWS, Azure, Google Cloud Platform (GCP), Big Data Concepts, Docker, Kubernetes, CI/CD, but does not mention SQL skills.
+  [UNSUPPORTED] Bhupender Singh Negi has skills in MongoDB
+  Reason:       The only relevant chunk to Bhupender Singh Negi does not mention any skills or experience with MongoDB.
+----------------------------------------
+
+------------------------------------------------------------
+Per-Query Results
+------------------------------------------------------------
+Query ID:         q001
+Question:         What is Bhupender's educational background?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Negi has completed a B.Tech in Artificial Intelligence and Data Science from Vivekananda Institute of Professional Studies, with graduation expected in 2025. Relevant coursework includ...
+Claims (3):
+  [Y] Bhupender Singh Negi has completed a B.Tech in Artificial Intelligence and Data Science from Vivekananda Institute of Professional Studies.
+      Evidence: doc_test_setup_chunk_17
+      Reason:   The context directly states 'B.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professional 
+      Method:   SLM_JUDGE
+  [Y] Bhupender Singh Negi's graduation is expected in 2025.
+      Evidence: doc_test_setup_chunk_17
+      Reason:   The relevant coursework mentions 'B.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professi
+      Method:   SLM_JUDGE
+  [Y] Relevant coursework includes Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), and Object-Oriented Programming (OOP).
+      Evidence: doc_test_setup_chunk_17
+      Reason:   The context directly mentions relevant coursework including Data Structures & Algorithms, Operating Systems, Database Ma
+      Method:   SLM_JUDGE
+Counts: 3 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q002
+Question:         Where did Bhupender complete his B.Tech degree?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.
+Claims (1):
+  [Y] Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.
+      Evidence: doc_test_setup_chunk_17
+      Reason:   The context mentions 'B.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professional Studies
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q003
+Question:         What is Bhupender's current role at JLL?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           BHUPENDER SINGH NEGI's current role at JLL is Analyst.
+Claims (1):
+  [Y] BHUPENDER SINGH NEGI's current role at JLL is Analyst
+      Evidence: doc_test_setup_chunk_5
+      Reason:   The context states that BHUPENDER SINGH NEGI has a current role at JLL as an Analyst.
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q004
+Question:         What was Bhupender's role at Tecraki Tech Solutions?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions, working there from December 2023 to June 2025.
+Claims (2):
+  [Y] Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions
+      Evidence: doc_test_setup_chunk_9
+      Reason:   The context contains a chunk that directly states 'Tecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025'.
+      Method:   SLM_JUDGE
+  [Y] Bhupender Singh Neogi worked there from December 2023 to June 2025
+      Evidence: doc_test_setup_chunk_9
+      Reason:   The relevant chunk states 'Tecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025' which directly supports th
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q005
+Question:         How much time did the AI Invoice Processing SOP cut processing time?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           The AI Invoice Processing SOP cut the processing time from 9 minutes to 2 minutes.
+Claims (1):
+  [Y] The AI Invoice Processing SOP cut the processing time from 9 minutes to 2 minutes.
+      Evidence: doc_test_setup_chunk_8
+      Reason:   The relevant chunk directly states 'AI Invoice Processing: Analyzed the existing workflow with client stakeholders and d
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q006
+Question:         What is MedTextVision and what was its impact?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI. Its impact is an improvement of entity-extraction F1 by 15% across 10,000+ records.
+Claims (2):
+  [Y] MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI.
+      Evidence: [Source 1]
+•MedTextVision - Document AI: Built a deep-learning OCR pipeline extracting structured data from unstructured
+      Reason:   The context directly states that MedTextVision is a deep-learning OCR pipeline developed by Document AI.
+      Method:   SLM_JUDGE
+  [Y] MedTextVision improves entity-extraction F1 by 15% across 10,000+ records.
+      Evidence: doc_test_setup_chunk_10
+      Reason:   The context directly states 'MedTextVision - Document AI: Built a deep-learning OCR pipeline extracting structured data 
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q007
+Question:         What details are given for the AutoAudit AI system?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           The AutoAudit AI system is designed and built to perform LLM (Large Language Model) agent utility data root-cause analysis across 6 accounts and 1,000+ properties. It replaces one full-time employee (...
+Claims (2):
+  [Y] The AutoAudit AI system is designed and built to perform LLM agent utility data root-cause analysis across 6 accounts and 1,000+ properties.
+      Evidence: doc_test_setup_chunk_7
+      Reason:   The relevant chunk directly supports the claim with the exact details provided.
+      Method:   SLM_JUDGE
+  [Y] It replaces one full-time employee (FTE) per year with same-day automated health checks.
+      Evidence: doc_test_setup_chunk_7
+      Reason:   The context directly states 'AutoAudit AI: Designed and built an LLM agent with tool-calling and MCP-exposed tools for u
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q008
+Question:         What rank did Bhupender finish in the Amazon ML Hackathon?
+Answerable:       True
+Classification:   NO_FACTUAL_CLAIMS
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q009
+Question:         Which international robotics competition did Bhupender represent Team India in?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Negi represented Team India in the RoboCup Japan 2021 international robotics competition.
+Claims (1):
+  [Y] Bhupender Singh Negi represented Team India in the RoboCup Japan 2021 international robotics competition.
+      Evidence: [Source 2]
+Document: test.txt
+Chunk ID: doc_test_setup_chunk_19
+Relevance Score: 0.6451
+AWARDS & CERTIFICATIONS
+•Interna
+      Reason:   The context directly states that Bhupender Singh Negi was an 'International Robotics Representative - Team India, RoboCu
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q010
+Question:         What is Bhupender's contact number and email address?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Neogi's contact number is +91 84480 93891 and his email address is bhupendernegi.ai@gmail.com.
+Claims (2):
+  [Y] Bhupender Singh Neogi's contact number is +91 84480 93891
+      Evidence: doc_test_setup_chunk_0
+      Reason:   The contact number +91 84480 93891 is mentioned in the retrieved context.
+      Method:   SLM_JUDGE
+  [Y] Bhupender Singh Neogi's email address is bhupendernegi.ai@gmail.com
+      Evidence: doc_test_setup_chunk_0: BHUPENDER SINGH NEGI | bhupendernegi.ai@gmail.com
+      Reason:   The email address bhupendernegi.ai@gmail.com is explicitly mentioned in the context.
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q011
+Question:         What certifications does Bhupender hold or is currently working on?
+Answerable:       True
+Classification:   PARTIALLY_GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Neogi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.
+Claims (2):
+  [N] Bhupender Singh Neogi holds a Lean Certified (JLL) certification.
+      Evidence: doc_test_setup_chunk_0:6, doc_test_setup_chunk_9:6, doc_test_setup_chunk_20:6
+      Reason:   The context does not mention any certification related to Lean Certified (JLL).
+      Method:   SLM_JUDGE
+  [Y] Bhupender Singh Neogi is working on obtaining a Six Sigma Green Belt certification.
+      Evidence: doc_test_setup_chunk_9
+      Reason:   The context mentions that Bhupender Singh Neogi is 'in progress' with a Six Sigma Green Belt certification.
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 1 unsupported
+----------------------------------------
+Query ID:         q012
+Question:         Which programming languages and databases does Bhupender have skills in?
+Answerable:       True
+Classification:   PARTIALLY_GROUNDED
+Retrieved:        test.txt
+Answer:           Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.
+Claims (3):
+  [Y] Bhupender Singh Negi has skills in Python
+      Evidence: doc_test_setup_chunk_0:Relevance Score: 0.6630
+Chunk: BHUPENDER SINGH NEGI
+Business Technology Solutions | AI/ML Enginee
+      Reason:   The context mentions that Bhupender Singh Negi has skills in Python through a specific project he worked on.
+      Method:   SLM_JUDGE
+  [N] Bhupender Singh Negi has skills in SQL
+      Evidence: doc_test_setup_chunk_0, Relevance Score: 0.6630
+      Reason:   The only relevant chunk mentions his skills in Python, SQL, RDBMS, C++, JavaScript/TypeScript, Node.js, Next.js, FastAPI
+      Method:   SLM_JUDGE
+  [N] Bhupender Singh Negi has skills in MongoDB
+      Evidence: doc_test_setup_chunk_0:Relevance Score: 0.6630
+      Reason:   The only relevant chunk to Bhupender Singh Negi does not mention any skills or experience with MongoDB.
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 2 unsupported
+----------------------------------------
+Query ID:         q013
+Question:         Summarize Bhupender's professional experience as a technology professional.
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           BHUPENDER SINGH NEGI is a Business Technology Solutions AI/ML Engineer based in Delhi/NCR, India. He has hands-on experience in translating complex business requirements into effective technical desig...
+Claims (2):
+  [Y] BHUPENDER SINGH NEGI is a Business Technology Solutions AI/ML Engineer based in Delhi/NCR, India.
+      Evidence: doc_test_setup_chunk_0
+      Reason:   The chunk states 'BHUPENDER SINGH NEGI
+Business Technology Solutions | AI/ML Engineer
+Delhi/NCR, India' which directly s
+      Method:   SLM_JUDGE
+  [Y] BHUPENDER SINGH NEGI has hands-on experience in translating complex business requirements into effective technical designs for enterprise clients.
+      Evidence: doc_test_setup_chunk_2
+      Reason:   The chunk states 'Technology solutions professional with hands-on experience translating complex business requirements i
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q014
+Question:         What is the Workday Analyst project details?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules. A Seman...
+Claims (2):
+  [Y] The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules.
+      Evidence: doc_test_setup_chunk_14
+      Reason:   The claim is directly supported by the relevance score and content of the chunk in doc_test_setup_chunk_14.
+      Method:   SLM_JUDGE
+  [Y] A Semantic Pruning algorithm was designed to prevent token explosion and reduce API overhead.
+      Evidence: doc_test_setup_chunk_14
+      Reason:   The chunk mentions 'designed a Semantic Pruning algorithm to prevent token explosion and reduce API overhead under'.
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q015
+Question:         What is the author's current annual salary?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q016
+Question:         What is Bhupender's favorite football team?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q017
+Question:         What are the listed KPIs?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q018
+Question:         What is the late arrival threshold?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q019
+Question:         What is the normal working duration?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q020
+Question:         What are the submission requirements for the code assignment?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------

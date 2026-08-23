@@ -1,0 +1,106 @@
+==============================================================================
+                     HOW TO RUN THIS PROJECT (RAG BOT)
+==============================================================================
+
+This plain-text guide explains how to install, set up, and run the Local 
+Document-Aware RAG Bot on your machine.
+
+------------------------------------------------------------------------------
+1. PREREQUISITES
+------------------------------------------------------------------------------
+Make sure you have the following installed on your system:
+
+  1. Python (version 3.10 or higher)
+     Check version in command prompt / terminal:
+     python --version
+
+  2. Ollama (for local SLM text generation)
+     Download and install from: https://ollama.com
+
+  3. Tesseract OCR (Optional - only needed if uploading Image files .png/.jpg)
+     Download installer from GitHub: tesseract-ocr
+
+------------------------------------------------------------------------------
+2. SETTING UP OLLAMA MODEL
+------------------------------------------------------------------------------
+Open your terminal / Command Prompt and run the following command to download 
+and prepare the required local AI model:
+
+  ollama pull qwen2.5:3b
+
+Make sure Ollama is running in the background.
+
+------------------------------------------------------------------------------
+3. PROJECT INSTALLATION
+------------------------------------------------------------------------------
+Open a terminal in the project directory (c:\Users\Dell\Desktop\RAG_bot) and 
+follow these steps:
+
+  Step 3.1: Create a Python virtual environment (Recommended)
+    python -m venv venv
+
+  Step 3.2: Activate the virtual environment
+    - On Windows:
+        venv\Scripts\activate
+    - On macOS / Linux:
+        source venv/bin/activate
+
+  Step 3.3: Install Python dependencies
+    pip install -r requirements.txt
+
+------------------------------------------------------------------------------
+4. RUNNING THE APPLICATION
+------------------------------------------------------------------------------
+  Step 4.1: Start the backend server
+    python app.py
+
+  Step 4.2: Open your web browser
+    Navigate to the following address:
+    http://127.0.0.1:5000
+
+------------------------------------------------------------------------------
+5. HOW TO USE THE WEB INTERFACE
+------------------------------------------------------------------------------
+  1. Create a New Chat:
+     Click the "➕ New" button on the left sidebar to start a new private 
+     chat session.
+
+  2. Upload Documents:
+     Drag and drop files (PDF, DOCX, TXT, PNG, JPG) into the "Upload Documents" 
+     box on the sidebar, or click "browse".
+     * Note: Documents uploaded to Chat A stay strictly inside Chat A and 
+       are never accessed by other chats.
+
+  3. Ask Questions:
+     Type your question into the chat input bar at the bottom and press Enter.
+
+  4. Citations & Diagnostics:
+     - Output answers will include source badges like [Source 1].
+     - Click "🔍 View Diagnostic Logs" under any answer to inspect score 
+       gating and retrieval decisions.
+
+  5. Delete Chat:
+     Click the "🗑️" icon next to any chat in the sidebar to delete that 
+     workspace and its uploaded documents.
+
+------------------------------------------------------------------------------
+6. RUNNING TESTS & EVALUATION BENCHMARK
+------------------------------------------------------------------------------
+  - To run all automated unit tests:
+      python -m unittest discover -s tests -p "test_*.py"
+
+  - To run full 5-Phase evaluation benchmark suite:
+      python evaluation/run_evaluation.py
+
+------------------------------------------------------------------------------
+7. TROUBLESHOOTING
+------------------------------------------------------------------------------
+  - Issue: "Failed calling LLM: Request to Ollama server timed out"
+    Solution: Ensure Ollama is running in the background and you ran 
+    `ollama pull qwen2.5:3b`.
+
+  - Issue: Chat delete fails on Windows
+    Solution: Make sure none of the uploaded document files inside that chat 
+    folder are currently open in Microsoft Word, VS Code, or PDF Readers.
+
+==============================================================================

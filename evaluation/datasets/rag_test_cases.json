@@ -1,0 +1,241 @@
+[
+  {
+    "test_id": "q001",
+    "question": "What is Bhupender's educational background?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_17"],
+    "expected_sources": ["test.txt"],
+    "expected_content": [
+      "B.Tech in Artificial Intelligence and Data Science",
+      "Vivekananda Institute of Professional Studies"
+    ],
+    "expected_facts": [
+      "B.Tech in Artificial Intelligence and Data Science",
+      "Vivekananda Institute of Professional Studies"
+    ]
+  },
+  {
+    "test_id": "q002",
+    "question": "Where did Bhupender complete his B.Tech degree?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_17"],
+    "expected_sources": ["test.txt"],
+    "expected_content": ["Vivekananda Institute of Professional Studies"],
+    "expected_facts": [
+      "Vivekananda Institute of Professional Studies"
+    ]
+  },
+  {
+    "test_id": "q003",
+    "question": "What is Bhupender's current role at JLL?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_5"],
+    "expected_sources": ["test.txt"],
+    "expected_content": ["Jones Lang LaSalle (JLL) — Analyst"],
+    "expected_facts": [
+      "Bhupender works as an Analyst at Jones Lang LaSalle",
+      "His role is at JLL"
+    ]
+  },
+  {
+    "test_id": "q004",
+    "question": "What was Bhupender's role at Tecraki Tech Solutions?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_9"],
+    "expected_sources": ["test.txt"],
+    "expected_content": ["Tecraki Tech Solutions — Founding ML Engineer"],
+    "expected_facts": [
+      "Bhupender was a Founding ML Engineer at Tecraki Tech Solutions"
+    ]
+  },
+  {
+    "test_id": "q005",
+    "question": "How much time did the AI Invoice Processing SOP cut processing time?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_8"],
+    "expected_sources": ["test.txt"],
+    "expected_content": ["from 9 minutes to 2 minutes"],
+    "expected_facts": [
+      "AI Invoice Processing SOP reduced processing time from 9 minutes to 2 minutes"
+    ]
+  },
+  {
+    "test_id": "q006",
+    "question": "What is MedTextVision and what was its impact?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_10"],
+    "expected_sources": ["test.txt"],
+    "expected_content": [
+      "deep-learning OCR pipeline",
+      "improving entity-extraction F1 by 15%"
+    ],
+    "expected_facts": [
+      "MedTextVision is a deep-learning OCR pipeline",
+      "MedTextVision improved entity-extraction F1 by 15%"
+    ]
+  },
+  {
+    "test_id": "q007",
+    "question": "What details are given for the AutoAudit AI system?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_7"],
+    "expected_sources": ["test.txt"],
+    "expected_content": [
+      "LLM agent with tool-calling and MCP-exposed tools",
+      "utility data root-cause analysis"
+    ],
+    "expected_facts": [
+      "AutoAudit AI is an LLM agent with tool-calling",
+      "AutoAudit AI uses MCP-exposed tools for utility data root-cause analysis"
+    ]
+  },
+  {
+    "test_id": "q008",
+    "question": "What rank did Bhupender finish in the Amazon ML Hackathon?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_19"],
+    "expected_sources": ["test.txt"],
+    "expected_content": ["Top 10% Finisher — Amazon ML Hackathon 2024"],
+    "expected_facts": [
+      "Bhupender finished in the top 10% in the Amazon ML Hackathon 2024"
+    ]
+  },
+  {
+    "test_id": "q009",
+    "question": "Which international robotics competition did Bhupender represent Team India in?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_19"],
+    "expected_sources": ["test.txt"],
+    "expected_content": ["RoboCup Japan 2021"],
+    "expected_facts": [
+      "Bhupender represented Team India at RoboCup Japan 2021"
+    ]
+  },
+  {
+    "test_id": "q010",
+    "question": "What is Bhupender's contact number and email address?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_0"],
+    "expected_sources": ["test.txt"],
+    "expected_content": [
+      "+91 84480 93891",
+      "bhupendernegi.ai@gmail.com"
+    ],
+    "expected_facts": [
+      "Bhupender's phone number is +91 84480 93891",
+      "Bhupender's email address is bhupendernegi.ai@gmail.com"
+    ]
+  },
+  {
+    "test_id": "q011",
+    "question": "What certifications does Bhupender hold or is currently working on?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_20"],
+    "expected_sources": ["test.txt"],
+    "expected_content": [
+      "Lean Certified (JLL)",
+      "Six Sigma Green Belt"
+    ],
+    "expected_facts": [
+      "Bhupender is Lean Certified from JLL",
+      "Bhupender is pursuing or holds Six Sigma Green Belt"
+    ]
+  },
+  {
+    "test_id": "q012",
+    "question": "Which programming languages and databases does Bhupender have skills in?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_23", "doc_test_setup_chunk_21"],
+    "expected_sources": ["test.txt"],
+    "expected_content": [
+      "Python, SQL, RDBMS",
+      "PostgreSQL, MongoDB, ChromaDB, Pinecone"
+    ],
+    "expected_facts": [
+      "Bhupender knows Python and SQL",
+      "Bhupender has experience with PostgreSQL and MongoDB"
+    ]
+  },
+  {
+    "test_id": "q013",
+    "question": "Summarize Bhupender's professional experience as a technology professional.",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_2"],
+    "expected_sources": ["test.txt"],
+    "expected_content": [
+      "translating complex business requirements into effective technical designs"
+    ],
+    "expected_facts": [
+      "Bhupender translates complex business requirements into technical designs",
+      "Bhupender is experienced in AI and ML engineering"
+    ]
+  },
+  {
+    "test_id": "q014",
+    "question": "What is the Workday Analyst project details?",
+    "answerable": true,
+    "expected_chunk_ids": ["doc_test_setup_chunk_14"],
+    "expected_sources": ["test.txt"],
+    "expected_content": [
+      "GenAI knowledge framework using Python, RAG, MCP, and Workday APIs"
+    ],
+    "expected_facts": [
+      "Workday Analyst project uses Python, RAG, and MCP",
+      "Workday Analyst project uses Workday APIs"
+    ]
+  },
+  {
+    "test_id": "q015",
+    "question": "What is the author's current annual salary?",
+    "answerable": false,
+    "expected_chunk_ids": [],
+    "expected_sources": [],
+    "expected_content": [],
+    "expected_facts": []
+  },
+  {
+    "test_id": "q016",
+    "question": "What is Bhupender's favorite football team?",
+    "answerable": false,
+    "expected_chunk_ids": [],
+    "expected_sources": [],
+    "expected_content": [],
+    "expected_facts": []
+  },
+  {
+    "test_id": "q017",
+    "question": "What are the listed KPIs?",
+    "answerable": false,
+    "expected_chunk_ids": [],
+    "expected_sources": [],
+    "expected_content": [],
+    "expected_facts": []
+  },
+  {
+    "test_id": "q018",
+    "question": "What is the late arrival threshold?",
+    "answerable": false,
+    "expected_chunk_ids": [],
+    "expected_sources": [],
+    "expected_content": [],
+    "expected_facts": []
+  },
+  {
+    "test_id": "q019",
+    "question": "What is the normal working duration?",
+    "answerable": false,
+    "expected_chunk_ids": [],
+    "expected_sources": [],
+    "expected_content": [],
+    "expected_facts": []
+  },
+  {
+    "test_id": "q020",
+    "question": "What are the submission requirements for the code assignment?",
+    "answerable": false,
+    "expected_chunk_ids": [],
+    "expected_sources": [],
+    "expected_content": [],
+    "expected_facts": []
+  }
+]

@@ -1,0 +1,220 @@
+{
+  "config": {
+    "top_k": 3,
+    "score_threshold": 0.4
+  },
+  "summary": {
+    "total_queries": 20,
+    "correct_citations": 0,
+    "missing_citations": 14,
+    "wrong_citations": 0,
+    "unsupported_citations": 0,
+    "correct_abstentions": 6,
+    "citation_accuracy": 0.0,
+    "citation_coverage": 0.0,
+    "missing_citation_rate": 1.0,
+    "unsupported_citation_rate": 0.0
+  },
+  "per_query": [
+    {
+      "test_id": "q001",
+      "question": "What is Bhupender's educational background?",
+      "answer": "Bhupender Singh Negi has completed a B.Tech in Artificial Intelligence and Data Science from Vivekananda Institute of Professional Studies, with graduation expected in 2025. Relevant coursework includes Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), and Object-Oriented Programming (OOP).",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q002",
+      "question": "Where did Bhupender complete his B.Tech degree?",
+      "answer": "Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q003",
+      "question": "What is Bhupender's current role at JLL?",
+      "answer": "BHUPENDER SINGH NEGI's current role at JLL is Analyst. This information is derived from the professional experience chunk in Source 2, which states \"Jones Lang LaSalle (JLL) - Analyst Jul 2025 - Present\".",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q004",
+      "question": "What was Bhupender's role at Tecraki Tech Solutions?",
+      "answer": "Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions, working there from December 2023 to June 2025.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q005",
+      "question": "How much time did the AI Invoice Processing SOP cut processing time?",
+      "answer": "The AI Invoice Processing SOP cut the processing time from 9 minutes to 2 minutes.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q006",
+      "question": "What is MedTextVision and what was its impact?",
+      "answer": "MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI. Its impact is an improvement of entity-extraction F1 by 15% across 10,000+ records.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q007",
+      "question": "What details are given for the AutoAudit AI system?",
+      "answer": "The AutoAudit AI system is designed and built to perform LLM (Large Language Model) agent utility data root-cause analysis across 6 accounts and 1,000+ properties. It replaces one full-time employee (FTE) per year with same-day automated health checks (in approval).",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q008",
+      "question": "What rank did Bhupender finish in the Amazon ML Hackathon?",
+      "answer": "Bhupender Singh Negi finished in the 3rd position in the Amazon ML Hackathon 2024.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q009",
+      "question": "Which international robotics competition did Bhupender represent Team India in?",
+      "answer": "Bhupender Singh Neogi represented Team India in the RoboCup Japan 2021 international robotics competition.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q010",
+      "question": "What is Bhupender's contact number and email address?",
+      "answer": "Bhupender Singh Neogi's contact number is +91 84480 93891 and his email address is bhupendernegi.ai@gmail.com.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q011",
+      "question": "What certifications does Bhupender hold or is currently working on?",
+      "answer": "Bhupender Singh Neogi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q012",
+      "question": "Which programming languages and databases does Bhupender have skills in?",
+      "answer": "Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q013",
+      "question": "Summarize Bhupender's professional experience as a technology professional.",
+      "answer": "BHUPENDER SINGH NEGI is a Business Technology Solutions AI/ML Engineer based in Delhi/NCR, India. He has hands-on experience in translating complex business requirements into effective technical designs for enterprise clients.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q014",
+      "question": "What is the Workday Analyst project details?",
+      "answer": "The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules. A Semantic Pruning algorithm was also designed to prevent token explosion and reduce API overhead.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "MISSING_CITATION",
+      "reason": "Factual answer was generated but no citations were present.",
+      "answerable": true
+    },
+    {
+      "test_id": "q015",
+      "question": "What is the author's current annual salary?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "CORRECT_ABSTENTION",
+      "reason": "",
+      "answerable": false
+    },
+    {
+      "test_id": "q016",
+      "question": "What is Bhupender's favorite football team?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "CORRECT_ABSTENTION",
+      "reason": "",
+      "answerable": false
+    },
+    {
+      "test_id": "q017",
+      "question": "What are the listed KPIs?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "CORRECT_ABSTENTION",
+      "reason": "",
+      "answerable": false
+    },
+    {
+      "test_id": "q018",
+      "question": "What is the late arrival threshold?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "CORRECT_ABSTENTION",
+      "reason": "",
+      "answerable": false
+    },
+    {
+      "test_id": "q019",
+      "question": "What is the normal working duration?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "CORRECT_ABSTENTION",
+      "reason": "",
+      "answerable": false
+    },
+    {
+      "test_id": "q020",
+      "question": "What are the submission requirements for the code assignment?",
+      "answer": "I couldn't find relevant information about that in the uploaded documents.",
+      "citation_present": false,
+      "cited_sources": [],
+      "classification": "CORRECT_ABSTENTION",
+      "reason": "",
+      "answerable": false
+    }
+  ]
+}

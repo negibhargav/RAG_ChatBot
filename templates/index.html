@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document-Aware AI Chatbot using RAG</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Link Vanilla Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css?v=4">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-box">
+                    <span class="logo-icon">⚡</span>
+                    <h2>RAG Bot</h2>
+                </div>
+                <div class="model-badge">qwen2.5:3b</div>
+            </div> <!-- Chats Workspace Section -->
+            <div class="chat-list-section">
+                <div class="chat-list-header">
+                    <span class="section-title" style="margin-bottom: 0;">Chats</span>
+                    <button class="btn-new-chat" id="btn-new-chat">➕ New</button>
+                </div>
+                <div class="chat-list" id="chat-list">
+                    <!-- Dynamic chats loaded here -->
+                </div>
+            </div>
+
+
+            <!-- Upload Area -->
+            <div class="upload-section">
+                <div class="section-title">Upload Documents</div>
+                <div class="drag-drop-zone" id="drop-zone">
+                    <span class="upload-icon">📁</span>
+                    <p>Drag & drop documents or <span>browse</span></p>
+                    <input type="file" id="file-input" multiple style="display: none;">
+                    <span class="file-limits">PDF, DOCX, TXT, PNG, JPG (Max 10MB)</span>
+                </div>
+                <div class="progress-bar-container" id="upload-progress-container" style="display: none;">
+                    <div class="progress-bar" id="upload-progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- File List Scroll Area -->
+            <div class="doc-list-section">
+                <div class="section-title">Uploaded Files</div>
+                <div class="doc-list" id="doc-list">
+                    <div class="empty-docs-placeholder">No documents ingested.</div>
+                </div>
+            </div>
+
+            <!-- Settings Panel -->
+            <div class="settings-section">
+                <div class="section-title">Pipeline Configurations</div>
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <span>Relevance Gate Threshold</span>
+                        <span class="val-display" id="threshold-val">0.40</span>
+                    </div>
+                    <input type="range" id="threshold-slider" min="0.0" max="1.0" step="0.05" value="0.40">
+                </div>
+                <div class="setting-item">
+                    <div class="setting-label">
+                        <span>Retrieve Top-K Chunks</span>
+                        <span class="val-display" id="topk-val">3</span>
+                    </div>
+                    <input type="range" id="topk-slider" min="1" max="10" step="1" value="3">
+                </div>
+            </div>
+
+            <!-- Sidebar Footer Actions -->
+            <div class="sidebar-footer"></div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area">
+            <!-- Empty State / Welcome Screen -->
+            <div class="welcome-screen" id="welcome-screen">
+                <div class="welcome-header">
+                    <h1>Local Grounded Assistant</h1>
+                    <p>Ask questions grounded directly in your private uploaded documents.</p>
+                </div>
+
+                <div class="starter-grid">
+                    <div class="starter-card" data-query="What data do we have in our documents?">
+                        <h3>📁 Document Inventory</h3>
+                        <p>Ask about the contents and structure of your ingested files.</p>
+                    </div>
+                    <div class="starter-card" data-query="Provide a detailed summary of the documents.">
+                        <h3>📝 Document Summary</h3>
+                        <p>Generate a high-level summary of your context data.</p>
+                    </div>
+                    <div class="starter-card" data-query="What technologies or terms are defined?">
+                        <h3>⚙️ Key Terms</h3>
+                        <p>Find definitions and tech stack descriptions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Log Area -->
+            <div class="message-container" id="message-container" style="display: none;">
+                <!-- Chat bubbles dynamically generated here -->
+            </div>
+
+            <!-- Bottom Chat Input Pane -->
+            <div class="input-panel">
+                <div class="input-container">
+                    <textarea id="chat-input" placeholder="Ask a question..." rows="1" autocomplete="off"
+                        spellcheck="true"></textarea>
+                    <button class="send-btn" id="send-btn" disabled>
+                        <svg viewBox="0 0 24 24" width="20" height="20">
+                            <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="system-status">
+                    <span>Local RAG Pipeline</span> • <span id="status-mode">Standard Chatbot Mode</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Main Controller Script -->
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>

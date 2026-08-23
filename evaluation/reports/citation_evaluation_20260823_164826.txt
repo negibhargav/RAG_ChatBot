@@ -1,0 +1,117 @@
+============================================================
+CITATION EVALUATION
+------------------------------------------------------------
+
+Total Evaluated Queries: 20
+
+Correct Citations: 0
+Missing Citations: 14
+Wrong Citations: 0
+Unsupported Citations: 0
+Correct Abstentions: 6
+
+Citation Accuracy: 0.00%
+Citation Coverage: 0.00%
+Missing Citation Rate: 100.00%
+Unsupported Citation Rate: 0.00%
+
+FAILED CASES
+------------
+[FAIL]
+Test ID:    q001
+Question:   What is Bhupender's educational background?
+Answer:     Bhupender Singh Negi has completed a B.Tech in Artificial Intelligence and Data Science from Vivekananda Institute of Professional Studies, with graduation expected in 2025. Relevant coursework includes Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), and Object-Oriented Programming (OOP).
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q002
+Question:   Where did Bhupender complete his B.Tech degree?
+Answer:     Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q003
+Question:   What is Bhupender's current role at JLL?
+Answer:     BHUPENDER SINGH NEGI's current role at JLL is Analyst. This information is derived from the professional experience chunk in Source 2, which states "Jones Lang LaSalle (JLL) - Analyst Jul 2025 - Present".
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q004
+Question:   What was Bhupender's role at Tecraki Tech Solutions?
+Answer:     Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions, working there from December 2023 to June 2025.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q005
+Question:   How much time did the AI Invoice Processing SOP cut processing time?
+Answer:     The AI Invoice Processing SOP cut the processing time from 9 minutes to 2 minutes.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q006
+Question:   What is MedTextVision and what was its impact?
+Answer:     MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI. Its impact is an improvement of entity-extraction F1 by 15% across 10,000+ records.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q007
+Question:   What details are given for the AutoAudit AI system?
+Answer:     The AutoAudit AI system is designed and built to perform LLM (Large Language Model) agent utility data root-cause analysis across 6 accounts and 1,000+ properties. It replaces one full-time employee (FTE) per year with same-day automated health checks (in approval).
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q008
+Question:   What rank did Bhupender finish in the Amazon ML Hackathon?
+Answer:     Bhupender Singh Negi finished in the 3rd position in the Amazon ML Hackathon 2024.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q009
+Question:   Which international robotics competition did Bhupender represent Team India in?
+Answer:     Bhupender Singh Neogi represented Team India in the RoboCup Japan 2021 international robotics competition.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q010
+Question:   What is Bhupender's contact number and email address?
+Answer:     Bhupender Singh Neogi's contact number is +91 84480 93891 and his email address is bhupendernegi.ai@gmail.com.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q011
+Question:   What certifications does Bhupender hold or is currently working on?
+Answer:     Bhupender Singh Neogi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q012
+Question:   Which programming languages and databases does Bhupender have skills in?
+Answer:     Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q013
+Question:   Summarize Bhupender's professional experience as a technology professional.
+Answer:     BHUPENDER SINGH NEGI is a Business Technology Solutions AI/ML Engineer based in Delhi/NCR, India. He has hands-on experience in translating complex business requirements into effective technical designs for enterprise clients.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q014
+Question:   What is the Workday Analyst project details?
+Answer:     The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules. A Semantic Pruning algorithm was also designed to prevent token explosion and reduce API overhead.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------

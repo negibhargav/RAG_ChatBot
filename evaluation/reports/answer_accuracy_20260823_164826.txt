@@ -1,0 +1,263 @@
+============================================================
+PHASE 3 — ANSWER ACCURACY EVALUATION
+============================================================
+
+------------------------------------------------------------
+Configuration
+------------------------------------------------------------
+Model:                qwen2.5:3b (local Ollama)
+Temperature:          0.0 (deterministic)
+Retrieval K:          3
+Relevance Gate:       0.4
+
+------------------------------------------------------------
+Overall Metrics
+------------------------------------------------------------
+Total Queries:        20
+  Answerable:         14
+  Unanswerable:       6
+
+  Correct:            12
+  Partially Correct:  1
+  Incorrect:          1
+
+Answer Accuracy:      0.8571
+Partial Accuracy:     0.0714
+Incorrect Rate:       0.0714
+
+  Correct Abstention: 6
+  Hallucinated:       0
+  Unsafe Abstention:  0
+
+Abstention Rate:      1.0000
+Hallucination Rate:   0.0000
+
+------------------------------------------------------------
+Failure Breakdown
+------------------------------------------------------------
+End-to-End Success:   12
+Generation Failures:  2
+Retrieval Failures:   0
+
+------------------------------------------------------------
+Per-Query Results
+------------------------------------------------------------
+Query ID:         q001
+Question:         What is Bhupender's educational background?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Negi's educational background includes a B.Tech in Artificial Intelligence and Data Science from the Vivekananda Institute of Professional Studies, with graduation expected in 2025. Re...
+Expected Facts:   2
+  [Y] B.Tech in Artificial Intelligence and Data Science
+  [Y] Vivekananda Institute of Professional Studies
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q002
+Question:         Where did Bhupender complete his B.Tech degree?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.
+Expected Facts:   1
+  [Y] Vivekananda Institute of Professional Studies
+Supported:        1/1
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q003
+Question:         What is Bhupender's current role at JLL?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: BHUPENDER SINGH NEGI's current role at JLL is Analyst. This information is derived from the professional experience chunk in Source 2, which states "Jones Lang LaSalle (JLL) - Analyst Jul 2025 - Prese...
+Expected Facts:   2
+  [Y] Bhupender works as an Analyst at Jones Lang LaSalle
+  [Y] His role is at JLL
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q004
+Question:         What was Bhupender's role at Tecraki Tech Solutions?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions from December 2023 to June 2025.
+Expected Facts:   1
+  [Y] Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions from December 2023 to June 2025
+Supported:        1/1
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q005
+Question:         How much time did the AI Invoice Processing SOP cut processing time?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: The AI Invoice Processing SOP cut the per-invoice processing time from 9 minutes to 2 minutes.
+Expected Facts:   1
+  [Y] AI Invoice Processing SOP reduced processing time from 9 minutes to 2 minutes
+Supported:        1/1
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q006
+Question:         What is MedTextVision and what was its impact?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI. Its impact is an improvement of entity-extraction F1 by 15% across 10,000+ records.
+Expected Facts:   2
+  [Y] MedTextVision is a deep-learning OCR pipeline
+  [Y] MedTextVision improved entity-extraction F1 by 15%
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q007
+Question:         What details are given for the AutoAudit AI system?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: The AutoAudit AI system is designed and built to perform LLM (Large Language Model) agent utility data root-cause analysis across 6 accounts and 1,000+ properties. It replaces one full-time employee (...
+Expected Facts:   2
+  [Y] AutoAudit AI is an LLM agent with tool-calling
+  [Y] AutoAudit AI uses MCP-exposed tools for utility data root-cause analysis
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q008
+Question:         What rank did Bhupender finish in the Amazon ML Hackathon?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Expected Facts:   1
+  [N] Bhupender finished in the top 10% in the Amazon ML Hackathon 2024
+Supported:        0/1
+Accuracy Class:   INCORRECT
+Failure Mode:     GENERATION_FAILURE
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q009
+Question:         Which international robotics competition did Bhupender represent Team India in?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Negi represented Team India in the RoboCup Japan 2021 international robotics competition.
+Expected Facts:   1
+  [Y] Bhupender represented Team India at RoboCup Japan 2021
+Supported:        1/1
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q010
+Question:         What is Bhupender's contact number and email address?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Neogi's contact number is +91 84480 93891 and his email address is bhupendernegi.ai@gmail.com.
+Expected Facts:   2
+  [Y] Bhupender's phone number is +91 84480 93891
+  [Y] Bhupender's email address is bhupendernegi.ai@gmail.com
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q011
+Question:         What certifications does Bhupender hold or is currently working on?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Negi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.
+Expected Facts:   2
+  [Y] Bhupender is Lean Certified from JLL
+  [Y] Bhupender is pursuing or holds Six Sigma Green Belt
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q012
+Question:         Which programming languages and databases does Bhupender have skills in?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.
+Expected Facts:   2
+  [Y] Bhupender knows Python and SQL
+  [Y] Bhupender has experience with PostgreSQL and MongoDB
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q013
+Question:         Summarize Bhupender's professional experience as a technology professional.
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: BHUPENDER SINGH NEGI is a Business Technology Solutions professional with hands-on experience translating complex business requirements into effective technical designs for enterprise clients.
+Expected Facts:   2
+  [Y] Bhupender translates complex business requirements into technical designs
+  [N] Bhupender is experienced in AI and ML engineering
+Supported:        1/2
+Accuracy Class:   PARTIALLY_CORRECT
+Failure Mode:     GENERATION_FAILURE
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q014
+Question:         What is the Workday Analyst project details?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules. A Seman...
+Expected Facts:   2
+  [Y] The Workday Analyst project uses Python, RAG, and MCP
+  [Y] The Workday Analyst project uses Workday APIs
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q015
+Question:         What is the author's current annual salary?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+Query ID:         q016
+Question:         What is Bhupender's favorite football team?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+Query ID:         q017
+Question:         What are the listed KPIs?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+Query ID:         q018
+Question:         What is the late arrival threshold?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+Query ID:         q019
+Question:         What is the normal working duration?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+Query ID:         q020
+Question:         What are the submission requirements for the code assignment?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------

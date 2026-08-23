@@ -1,0 +1,38 @@
+BHUPENDER SINGH NEGI
+Business Technology Solutions | AI/ML Engineer
+Delhi/NCR, India  |  +91 84480 93891  |  bhupendernegi.ai@gmail.com  |  LinkedIn  |  GitHub  |  LeetCode
+
+PROFESSIONAL SUMMARY
+Technology solutions professional with hands-on experience translating complex business requirements into effective technical designs for enterprise clients. Proficient in Python, SQL, and RDBMS concepts, with strong grounding in algorithms and data structures and a track record of implementing production automation and Generative AI solutions using agile development methodologies. Experienced collaborating directly with client and internal teams to scope, build, and deliver small-to-medium scale technology solutions end-to-end, with working familiarity across AWS, cloud platforms, and AI-assisted development tools (Copilot, SQL generation).
+PROFESSIONAL EXPERIENCE
+Jones Lang LaSalle (JLL) — Analyst	Jul 2025 – Present
+Delhi/NCR, India
+Design and implement technology solutions for enterprise real estate clients, translating business problems into technical designs spanning QA/QC automation, utility data auditing, and invoice processing.
+•Automated QA/QC System: Analyzed a recurring business process end-to-end and implemented an automation solution that eliminated 5 months/year of manual QC work, applying structured testing and QA procedures throughout development.
+•AutoAudit AI: Designed and built an LLM agent with tool-calling and MCP-exposed tools for utility data root-cause analysis across 6 accounts and 1,000+ properties — replacing 1 FTE/year with same-day automated health checks (in approval).
+•AI Invoice Processing: Analyzed the existing workflow with client stakeholders and designed an SOP that cut per-invoice processing time from 9 minutes to 2 minutes.
+•Impact: 500+ hours saved to date; 2,000+ hours/year in pipeline, closing next month.
+Tecraki Tech Solutions — Founding ML Engineer	Dec 2023 – Jun 2025
+Delhi/NCR, India
+•Performance Engineering: Reduced per-request API latency by 50% (6.0s → 3.0s) by architecting a stateful multi-agent RAG system in Python with custom retrieval optimization and semantic memory caching.
+•MedTextVision — Document AI: Built a deep-learning OCR pipeline extracting structured data from unstructured medical documents, improving entity-extraction F1 by 15% across 10,000+ records.
+•Vision-Enabled Healthcare Chatbot: Built a multi-modal NLP + computer vision assistant that parses uploaded prescriptions/vitals images to resolve patient queries, cutting support workload through automated self-service.
+•Deployed scalable REST APIs for production ML/CV inference and established full-lifecycle cloud monitoring (latency, throughput, drift detection), following agile development and unit-testing practices.
+TECHNICAL PROJECTS
+•Workday Analyst — Agentic AI (Personal Project): Architected a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules; designed a Semantic Pruning algorithm to prevent token explosion and reduce API overhead under heavy enterprise loads; coordinated multi-agent workflows (A2A) with iterative prompt engineering to reduce hallucinations.
+•Product Identifier Model (Amazon ML Hackathon): Built a distributed multi-modal indexing pipeline (Python, OCR, Pinecone, FastAPI) processing 1,000+ files in parallel, automating entity-value mapping using algorithmic data structures for under-documented e-commerce SKUs.
+EDUCATION
+B.Tech in Artificial Intelligence and Data Science — Vivekananda Institute of Professional Studies	Graduation: 2025
+Relevant Coursework: Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), Object-Oriented Programming (OOP).
+Indian Institute of Technology (IIT), Madras	Discontinued / Partial Completion
+Tracks in Mathematical Data Science & Statistical Modeling — completed foundational coursework in linear algebra, calculus, probability, and statistical modeling prior to departure.
+AWARDS & CERTIFICATIONS
+•Top 10% Finisher — Amazon ML Hackathon 2024; 3rd Position — Gen AI Hackathon (Epoch), IIIT Delhi (2025).
+•International Robotics Representative — Team India, RoboCup Japan 2021 (real-time edge computing & software-hardware coordination).
+•Lean Certified (JLL) — completed; Six Sigma Green Belt — in progress.
+TECHNICAL SKILLS
+Generative AI & Agentic Systems: LLM Fine-Tuning, Advanced RAG, Multi-Agent Orchestration (LangGraph), MCP (Model Context Protocol), AWS AgentCore & Strands, Semantic Pruning, Prompt Engineering, Token Optimization
+Machine Learning & Computer Vision: OpenCV, Deep Learning OCR, Statistical Modeling, Predictive Analytics, Algorithms & Data Structures, Evaluation Metrics (F1-Score, Precision)
+Languages & Frameworks: Python, SQL, RDBMS, C++, JavaScript/TypeScript, Node.js, Next.js, FastAPI, Excel VBA, LangChain, LlamaIndex
+Databases, Cloud & Big Data: PostgreSQL, MongoDB, ChromaDB, Pinecone, Redis, AWS, Azure, Google Cloud Platform (GCP), Big Data Concepts, Docker, Kubernetes, CI/CD
+Productivity & Methodologies: GitHub Copilot, SQL Generation Tools, Lean, Six Sigma Green Belt (In Progress), 5S, Agile/Scrum

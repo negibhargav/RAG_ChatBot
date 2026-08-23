@@ -1,0 +1,1168 @@
+============================================================
+                RAG RETRIEVAL EVALUATION REPORT
+============================================================
+
+------------------------------------------------------------
+Evaluation Configuration
+------------------------------------------------------------
+Dataset Path:             evaluation\datasets\rag_test_cases.json
+Number of Test Cases:     20
+  - Answerable Queries:   14
+  - Unanswerable Queries: 6
+Embedding Model:          BAAI/bge-small-en-v1.5
+Chunk Size:               300
+Chunk Overlap:            30
+Tested K Values:          1, 3, 5
+Tested Relevance Gates:   0.40, 0.50, 0.60, 0.70
+
+------------------------------------------------------------
+Overall Results Grid
+------------------------------------------------------------
+K   | Gate  | Hit@K    | Recall@K  | MRR      | Src Hit  | Src Recall | False Retr
+----------------------------------------------------------------------------------------
+1   | 0.40  | 0.5000   | 0.4643    | 0.5000   | 1.0000   | 1.0000     | 1.0000    
+3   | 0.40  | 1.0000   | 0.9643    | 0.7262   | 1.0000   | 1.0000     | 1.0000    
+5   | 0.40  | 1.0000   | 0.9643    | 0.7262   | 1.0000   | 1.0000     | 1.0000    
+1   | 0.50  | 0.5000   | 0.4643    | 0.5000   | 1.0000   | 1.0000     | 1.0000    
+3   | 0.50  | 1.0000   | 0.9643    | 0.7262   | 1.0000   | 1.0000     | 1.0000    
+5   | 0.50  | 1.0000   | 0.9643    | 0.7262   | 1.0000   | 1.0000     | 1.0000    
+1   | 0.60  | 0.5000   | 0.4643    | 0.5000   | 0.9286   | 0.9286     | 0.5000    
+3   | 0.60  | 0.8571   | 0.8214    | 0.6667   | 0.9286   | 0.9286     | 0.5000    
+5   | 0.60  | 0.8571   | 0.8214    | 0.6667   | 0.9286   | 0.9286     | 0.5000    
+1   | 0.70  | 0.4286   | 0.4286    | 0.4286   | 0.5714   | 0.5714     | 0.0000    
+3   | 0.70  | 0.4286   | 0.4286    | 0.4286   | 0.5714   | 0.5714     | 0.0000    
+5   | 0.70  | 0.4286   | 0.4286    | 0.4286   | 0.5714   | 0.5714     | 0.0000    
+
+------------------------------------------------------------
+Best Configuration Recommendations & Trade-offs
+------------------------------------------------------------
+Best Answerable Retrieval Config: K=3 at Gate Threshold=0.40
+  - Hit@K: 1.0000 | Recall@K: 0.9643 | MRR: 0.7262
+  - False Retrieval Rate: 1.0000
+
+Best Abstaining Config:            K=1 at Gate Threshold=0.70
+  - False Retrieval Rate: 0.0000
+  - Answerable Recall:    0.4286
+
+Trade-off Analysis:
+  - Lower Gate Thresholds (0.40) provide high recall but increase False Retrieval Rates for unanswerable queries.
+  - Higher Gate Thresholds (0.60/0.70) drop False Retrieval Rates but risk gating out relevant context, reducing Recall.
+
+------------------------------------------------------------
+Per-Query Results Breakdown (Default Run: K=3, Gate=0.40)
+------------------------------------------------------------
+Query ID:        q001
+Question:        What is Bhupender's educational background?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_17
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_0 (score: 0.5904), doc_test_setup_chunk_17 (score: 0.5220), doc_test_setup_chunk_1 (score: 0.5133)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 0.5 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q002
+Question:        Where did Bhupender complete his B.Tech degree?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_17
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_0 (score: 0.6612), doc_test_setup_chunk_17 (score: 0.6076), doc_test_setup_chunk_13 (score: 0.5376)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 0.5 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q003
+Question:        What is Bhupender's current role at JLL?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_5
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_0 (score: 0.6800), doc_test_setup_chunk_5 (score: 0.6684), doc_test_setup_chunk_20 (score: 0.6222)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 0.5 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q004
+Question:        What was Bhupender's role at Tecraki Tech Solutions?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_9
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_0 (score: 0.7071), doc_test_setup_chunk_9 (score: 0.6856), doc_test_setup_chunk_13 (score: 0.5775)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 0.5 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q005
+Question:        How much time did the AI Invoice Processing SOP cut processing time?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_8
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_8 (score: 0.9212), doc_test_setup_chunk_6 (score: 0.6595), doc_test_setup_chunk_7 (score: 0.6562)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 1.0 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q006
+Question:        What is MedTextVision and what was its impact?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_10
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_10 (score: 0.7620), doc_test_setup_chunk_11 (score: 0.7224), doc_test_setup_chunk_22 (score: 0.5980)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 1.0 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q007
+Question:        What details are given for the AutoAudit AI system?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_7
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_7 (score: 0.8011), doc_test_setup_chunk_21 (score: 0.6646), doc_test_setup_chunk_11 (score: 0.6438)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 1.0 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q008
+Question:        What rank did Bhupender finish in the Amazon ML Hackathon?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_19
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_19 (score: 0.7335), doc_test_setup_chunk_16 (score: 0.7150), doc_test_setup_chunk_0 (score: 0.6826)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 1.0 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q009
+Question:        Which international robotics competition did Bhupender represent Team India in?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_19
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_0 (score: 0.6522), doc_test_setup_chunk_19 (score: 0.6451), doc_test_setup_chunk_9 (score: 0.5711)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 0.5 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q010
+Question:        What is Bhupender's contact number and email address?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_0
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_0 (score: 0.7256), doc_test_setup_chunk_9 (score: 0.5584), doc_test_setup_chunk_16 (score: 0.5166)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 1.0 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q011
+Question:        What certifications does Bhupender hold or is currently working on?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_20
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_0 (score: 0.6856), doc_test_setup_chunk_9 (score: 0.6061), doc_test_setup_chunk_20 (score: 0.5869)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 0.3333333333333333 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q012
+Question:        Which programming languages and databases does Bhupender have skills in?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_23, doc_test_setup_chunk_21
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_23 (score: 0.6823), doc_test_setup_chunk_0 (score: 0.6630), doc_test_setup_chunk_16 (score: 0.6284)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 0.5 | RR: 1.0 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q013
+Question:        Summarize Bhupender's professional experience as a technology professional.
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_2
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_0 (score: 0.7062), doc_test_setup_chunk_1 (score: 0.6833), doc_test_setup_chunk_2 (score: 0.6627)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 0.3333333333333333 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q014
+Question:        What is the Workday Analyst project details?
+Answerable:      True
+Expected Chunks: doc_test_setup_chunk_14
+Expected Source: test.txt
+Retrieved Chunks: doc_test_setup_chunk_14 (score: 0.7361), doc_test_setup_chunk_1 (score: 0.6635), doc_test_setup_chunk_13 (score: 0.6212)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         Hit: 1 | Recall: 1.0 | RR: 1.0 | Source Hit: 1 | Source Recall: 1.0
+----------------------------------------
+Query ID:        q015
+Question:        What is the author's current annual salary?
+Answerable:      False
+Expected Chunks: None
+Expected Source: None
+Retrieved Chunks: doc_test_setup_chunk_1 (score: 0.5963), doc_test_setup_chunk_14 (score: 0.5016), doc_test_setup_chunk_5 (score: 0.4786)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         False Retrieval: True
+----------------------------------------
+Query ID:        q016
+Question:        What is Bhupender's favorite football team?
+Answerable:      False
+Expected Chunks: None
+Expected Source: None
+Retrieved Chunks: doc_test_setup_chunk_0 (score: 0.5331), doc_test_setup_chunk_5 (score: 0.4122), doc_test_setup_chunk_24 (score: 0.3985)
+Retrieved Source: test.txt
+Accepted Chunks:  2
+Metrics:         False Retrieval: True
+----------------------------------------
+Query ID:        q017
+Question:        What are the listed KPIs?
+Answerable:      False
+Expected Chunks: None
+Expected Source: None
+Retrieved Chunks: doc_test_setup_chunk_1 (score: 0.6145), doc_test_setup_chunk_24 (score: 0.5795), doc_test_setup_chunk_7 (score: 0.5684)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         False Retrieval: True
+----------------------------------------
+Query ID:        q018
+Question:        What is the late arrival threshold?
+Answerable:      False
+Expected Chunks: None
+Expected Source: None
+Retrieved Chunks: doc_test_setup_chunk_9 (score: 0.5903), doc_test_setup_chunk_8 (score: 0.5491), doc_test_setup_chunk_12 (score: 0.5350)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         False Retrieval: True
+----------------------------------------
+Query ID:        q019
+Question:        What is the normal working duration?
+Answerable:      False
+Expected Chunks: None
+Expected Source: None
+Retrieved Chunks: doc_test_setup_chunk_8 (score: 0.6382), doc_test_setup_chunk_6 (score: 0.5984), doc_test_setup_chunk_13 (score: 0.5675)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         False Retrieval: True
+----------------------------------------
+Query ID:        q020
+Question:        What are the submission requirements for the code assignment?
+Answerable:      False
+Expected Chunks: None
+Expected Source: None
+Retrieved Chunks: doc_test_setup_chunk_1 (score: 0.6265), doc_test_setup_chunk_13 (score: 0.6057), doc_test_setup_chunk_9 (score: 0.5752)
+Retrieved Source: test.txt
+Accepted Chunks:  3
+Metrics:         False Retrieval: True
+----------------------------------------
+
+============================================================
+=========================================
+PHASE 2 — CHUNKING EVALUATION
+=========================================
+================*========================
+
+Configuration: chunk_size=200, chunk_overlap=20
+Documents:     1
+Chunks:        45
+Chunk Character Lengths: min=17, max=200, avg=119.1, median=132
+Quality Metrics: very_small=19, close_to_max=14, incomplete_sentences=27, orphaned_headings=6
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7857
+  Recall@3:       0.7143
+  MRR:            0.6310
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=200, chunk_overlap=30
+Documents:     1
+Chunks:        45
+Chunk Character Lengths: min=17, max=200, avg=122.0, median=132
+Quality Metrics: very_small=17, close_to_max=14, incomplete_sentences=27, orphaned_headings=5
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7857
+  Recall@3:       0.7143
+  MRR:            0.6310
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=200, chunk_overlap=50
+Documents:     1
+Chunks:        45
+Chunk Character Lengths: min=17, max=200, avg=127.3, median=132
+Quality Metrics: very_small=16, close_to_max=14, incomplete_sentences=27, orphaned_headings=5
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7857
+  Recall@3:       0.7143
+  MRR:            0.6310
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=300, chunk_overlap=20
+Documents:     1
+Chunks:        25
+Chunk Character Lengths: min=19, max=300, avg=207.6, median=232
+Quality Metrics: very_small=3, close_to_max=5, incomplete_sentences=8, orphaned_headings=2
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7857
+  Recall@3:       0.7500
+  MRR:            0.5833
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=300, chunk_overlap=30
+Documents:     1
+Chunks:        25
+Chunk Character Lengths: min=19, max=300, avg=208.0, median=232
+Quality Metrics: very_small=3, close_to_max=5, incomplete_sentences=8, orphaned_headings=2
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7857
+  Recall@3:       0.7500
+  MRR:            0.5833
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=300, chunk_overlap=50
+Documents:     1
+Chunks:        25
+Chunk Character Lengths: min=19, max=300, avg=208.6, median=232
+Quality Metrics: very_small=3, close_to_max=5, incomplete_sentences=8, orphaned_headings=2
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7857
+  Recall@3:       0.7500
+  MRR:            0.5833
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=500, chunk_overlap=20
+Documents:     1
+Chunks:        15
+Chunk Character Lengths: min=21, max=472, avg=344.7, median=399
+Quality Metrics: very_small=1, close_to_max=1, incomplete_sentences=6, orphaned_headings=1
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7143
+  Recall@3:       0.7143
+  MRR:            0.5619
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=500, chunk_overlap=30
+Documents:     1
+Chunks:        15
+Chunk Character Lengths: min=21, max=472, avg=344.7, median=399
+Quality Metrics: very_small=1, close_to_max=1, incomplete_sentences=6, orphaned_headings=1
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7143
+  Recall@3:       0.7143
+  MRR:            0.5619
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=500, chunk_overlap=50
+Documents:     1
+Chunks:        15
+Chunk Character Lengths: min=21, max=472, avg=344.7, median=399
+Quality Metrics: very_small=1, close_to_max=1, incomplete_sentences=6, orphaned_headings=1
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7143
+  Recall@3:       0.7143
+  MRR:            0.5619
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=700, chunk_overlap=20
+Documents:     1
+Chunks:        10
+Chunk Character Lengths: min=164, max=671, avg=517.0, median=550.0
+Quality Metrics: very_small=0, close_to_max=3, incomplete_sentences=5, orphaned_headings=0
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7143
+  Recall@3:       0.6786
+  MRR:            0.5119
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=700, chunk_overlap=30
+Documents:     1
+Chunks:        10
+Chunk Character Lengths: min=164, max=671, avg=517.0, median=550.0
+Quality Metrics: very_small=0, close_to_max=3, incomplete_sentences=5, orphaned_headings=0
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7143
+  Recall@3:       0.6786
+  MRR:            0.5119
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+Configuration: chunk_size=700, chunk_overlap=50
+Documents:     1
+Chunks:        10
+Chunk Character Lengths: min=164, max=671, avg=517.0, median=550.0
+Quality Metrics: very_small=0, close_to_max=3, incomplete_sentences=5, orphaned_headings=0
+Retrieval Quality (K=3, Gate=0.40):
+  Hit@3:          0.7143
+  Recall@3:       0.6786
+  MRR:            0.5119
+  Source Recall:  1.0000
+  False Retrieval: 1.0000
+----------------------------------------
+
+=========================================
+CHUNKING COMPARISON
+=========================================
+Size  | Over | Chunks | Hit@3   | Rec@3   | MRR     | Src Rec | False Ret | Workload
+----------------------------------------------------------------------------------------
+200   | 20   | 45     | 0.7857  | 0.7143  | 0.6310  | 1.0000  | 1.0000    | 1.80    
+200   | 30   | 45     | 0.7857  | 0.7143  | 0.6310  | 1.0000  | 1.0000    | 1.80    
+200   | 50   | 45     | 0.7857  | 0.7143  | 0.6310  | 1.0000  | 1.0000    | 1.80    
+300   | 20   | 25     | 0.7857  | 0.7500  | 0.5833  | 1.0000  | 1.0000    | 1.00    
+300   | 30   | 25     | 0.7857  | 0.7500  | 0.5833  | 1.0000  | 1.0000    | 1.00    
+300   | 50   | 25     | 0.7857  | 0.7500  | 0.5833  | 1.0000  | 1.0000    | 1.00    
+500   | 20   | 15     | 0.7143  | 0.7143  | 0.5619  | 1.0000  | 1.0000    | 0.60    
+500   | 30   | 15     | 0.7143  | 0.7143  | 0.5619  | 1.0000  | 1.0000    | 0.60    
+500   | 50   | 15     | 0.7143  | 0.7143  | 0.5619  | 1.0000  | 1.0000    | 0.60    
+700   | 20   | 10     | 0.7143  | 0.6786  | 0.5119  | 1.0000  | 1.0000    | 0.40    
+700   | 30   | 10     | 0.7143  | 0.6786  | 0.5119  | 1.0000  | 1.0000    | 0.40    
+700   | 50   | 10     | 0.7143  | 0.6786  | 0.5119  | 1.0000  | 1.0000    | 0.40    
+
+=========================================
+RECOMMENDATION
+=========================================
+Best Retrieval Configuration: chunk_size=200, chunk_overlap=20
+  - Retrieval Score: 0.7381
+  - Chunks Generated: 45
+
+Best Balanced Configuration:  chunk_size=700, chunk_overlap=20
+  - Balanced Score:  0.6876
+  - Chunks Generated: 10
+
+Reason:
+  - Retrieval scoring favors configurations yielding the highest Hit, Recall, and MRR bounds.
+  - Balanced scoring incorporates an efficiency penalty to discourage chunk explosion (excessive workload / storage splits).
+  - Check chunk quality stats to avoid configurations producing too many orphaned headings or incomplete sentence splits.
+
+============================================================
+PHASE 3 — ANSWER ACCURACY EVALUATION
+============================================================
+
+------------------------------------------------------------
+Configuration
+------------------------------------------------------------
+Model:                qwen2.5:3b (local Ollama)
+Temperature:          0.0 (deterministic)
+Retrieval K:          3
+Relevance Gate:       0.4
+
+------------------------------------------------------------
+Overall Metrics
+------------------------------------------------------------
+Total Queries:        20
+  Answerable:         14
+  Unanswerable:       6
+
+  Correct:            12
+  Partially Correct:  1
+  Incorrect:          1
+
+Answer Accuracy:      0.8571
+Partial Accuracy:     0.0714
+Incorrect Rate:       0.0714
+
+  Correct Abstention: 6
+  Hallucinated:       0
+  Unsafe Abstention:  0
+
+Abstention Rate:      1.0000
+Hallucination Rate:   0.0000
+
+------------------------------------------------------------
+Failure Breakdown
+------------------------------------------------------------
+End-to-End Success:   12
+Generation Failures:  2
+Retrieval Failures:   0
+
+------------------------------------------------------------
+Per-Query Results
+------------------------------------------------------------
+Query ID:         q001
+Question:         What is Bhupender's educational background?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Negi's educational background includes a B.Tech in Artificial Intelligence and Data Science from the Vivekananda Institute of Professional Studies, with graduation expected in 2025. Re...
+Expected Facts:   2
+  [Y] B.Tech in Artificial Intelligence and Data Science
+  [Y] Vivekananda Institute of Professional Studies
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q002
+Question:         Where did Bhupender complete his B.Tech degree?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.
+Expected Facts:   1
+  [Y] Vivekananda Institute of Professional Studies
+Supported:        1/1
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q003
+Question:         What is Bhupender's current role at JLL?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: BHUPENDER SINGH NEGI's current role at JLL is Analyst. This information is derived from the professional experience chunk in Source 2, which states "Jones Lang LaSalle (JLL) - Analyst Jul 2025 - Prese...
+Expected Facts:   2
+  [Y] Bhupender works as an Analyst at Jones Lang LaSalle
+  [Y] His role is at JLL
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q004
+Question:         What was Bhupender's role at Tecraki Tech Solutions?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions from December 2023 to June 2025.
+Expected Facts:   1
+  [Y] Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions from December 2023 to June 2025
+Supported:        1/1
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q005
+Question:         How much time did the AI Invoice Processing SOP cut processing time?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: The AI Invoice Processing SOP cut the per-invoice processing time from 9 minutes to 2 minutes.
+Expected Facts:   1
+  [Y] AI Invoice Processing SOP reduced processing time from 9 minutes to 2 minutes
+Supported:        1/1
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q006
+Question:         What is MedTextVision and what was its impact?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI. Its impact is an improvement of entity-extraction F1 by 15% across 10,000+ records.
+Expected Facts:   2
+  [Y] MedTextVision is a deep-learning OCR pipeline
+  [Y] MedTextVision improved entity-extraction F1 by 15%
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q007
+Question:         What details are given for the AutoAudit AI system?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: The AutoAudit AI system is designed and built to perform LLM (Large Language Model) agent utility data root-cause analysis across 6 accounts and 1,000+ properties. It replaces one full-time employee (...
+Expected Facts:   2
+  [Y] AutoAudit AI is an LLM agent with tool-calling
+  [Y] AutoAudit AI uses MCP-exposed tools for utility data root-cause analysis
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q008
+Question:         What rank did Bhupender finish in the Amazon ML Hackathon?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Expected Facts:   1
+  [N] Bhupender finished in the top 10% in the Amazon ML Hackathon 2024
+Supported:        0/1
+Accuracy Class:   INCORRECT
+Failure Mode:     GENERATION_FAILURE
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q009
+Question:         Which international robotics competition did Bhupender represent Team India in?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Negi represented Team India in the RoboCup Japan 2021 international robotics competition.
+Expected Facts:   1
+  [Y] Bhupender represented Team India at RoboCup Japan 2021
+Supported:        1/1
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q010
+Question:         What is Bhupender's contact number and email address?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Neogi's contact number is +91 84480 93891 and his email address is bhupendernegi.ai@gmail.com.
+Expected Facts:   2
+  [Y] Bhupender's phone number is +91 84480 93891
+  [Y] Bhupender's email address is bhupendernegi.ai@gmail.com
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q011
+Question:         What certifications does Bhupender hold or is currently working on?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Bhupender Singh Negi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.
+Expected Facts:   2
+  [Y] Bhupender is Lean Certified from JLL
+  [Y] Bhupender is pursuing or holds Six Sigma Green Belt
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q012
+Question:         Which programming languages and databases does Bhupender have skills in?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.
+Expected Facts:   2
+  [Y] Bhupender knows Python and SQL
+  [Y] Bhupender has experience with PostgreSQL and MongoDB
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q013
+Question:         Summarize Bhupender's professional experience as a technology professional.
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: BHUPENDER SINGH NEGI is a Business Technology Solutions professional with hands-on experience translating complex business requirements into effective technical designs for enterprise clients.
+Expected Facts:   2
+  [Y] Bhupender translates complex business requirements into technical designs
+  [N] Bhupender is experienced in AI and ML engineering
+Supported:        1/2
+Accuracy Class:   PARTIALLY_CORRECT
+Failure Mode:     GENERATION_FAILURE
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q014
+Question:         What is the Workday Analyst project details?
+Answerable:       True
+Retrieved Sources: test.txt
+Generated Answer: The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules. A Seman...
+Expected Facts:   2
+  [Y] The Workday Analyst project uses Python, RAG, and MCP
+  [Y] The Workday Analyst project uses Workday APIs
+Supported:        2/2
+Accuracy Class:   CORRECT
+Failure Mode:     END_TO_END_SUCCESS
+Eval Method:      SLM_JUDGE
+----------------------------------------
+Query ID:         q015
+Question:         What is the author's current annual salary?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+Query ID:         q016
+Question:         What is Bhupender's favorite football team?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+Query ID:         q017
+Question:         What are the listed KPIs?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+Query ID:         q018
+Question:         What is the late arrival threshold?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+Query ID:         q019
+Question:         What is the normal working duration?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+Query ID:         q020
+Question:         What are the submission requirements for the code assignment?
+Answerable:       False
+Retrieved Sources: test.txt
+Generated Answer: I couldn't find relevant information about that in the uploaded documents.
+Abstention Class: CORRECT_ABSTENTION
+----------------------------------------
+
+============================================================
+PHASE 4 -- GROUNDEDNESS & HALLUCINATION EVALUATION
+============================================================
+
+------------------------------------------------------------
+Configuration
+------------------------------------------------------------
+Model:                  qwen2.5:3b (local Ollama)
+Temperature:            0.0 (deterministic)
+Retrieval K:            3
+Relevance Gate:         0.4
+Grounding basis:        Retrieved context only
+
+------------------------------------------------------------
+Overall Metrics
+------------------------------------------------------------
+Total Queries:          20
+  Answerable:           14
+  Unanswerable:         6
+  Evaluable (w/ facts): 13
+
+  Grounded:             11
+  Partially Grounded:   2
+  Ungrounded:           0
+  No Factual Claims:    1
+
+Groundedness Rate:      0.8462
+Partial Grounding Rate: 0.1538
+Hallucination Rate:     0.0000
+
+Total Claims Evaluated: 24
+  Supported:            21
+  Partial:              0
+  Unsupported:          3
+
+Claim Support Rate:     0.8750
+Unsupported Claim Rate: 0.1250
+
+  Correct Abstention:   6
+  False Answer:         0
+  Hallucination (Unans):0
+
+Abstention Rate:        1.0000
+False Answer Rate:      0.0000
+
+------------------------------------------------------------
+FAILED / PARTIALLY FAILED CASES
+------------------------------------------------------------
+[FAIL] q011
+Question:       What certifications does Bhupender hold or is currently working on?
+Classification: PARTIALLY_GROUNDED
+Answer preview: Bhupender Singh Neogi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.
+  [UNSUPPORTED] Bhupender Singh Neogi holds a Lean Certified (JLL) certification.
+  Reason:       The context does not mention any certification related to Lean Certified (JLL).
+----------------------------------------
+[FAIL] q012
+Question:       Which programming languages and databases does Bhupender have skills in?
+Classification: PARTIALLY_GROUNDED
+Answer preview: Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.
+  [UNSUPPORTED] Bhupender Singh Negi has skills in SQL
+  Reason:       The only relevant chunk mentions his skills in Python, SQL, RDBMS, C++, JavaScript/TypeScript, Node.js, Next.js, FastAPI, Excel VBA, LangChain, LlamaIndex, PostgreSQL, MongoDB, ChromaDB, Pinecone, AWS, Azure, Google Cloud Platform (GCP), Big Data Concepts, Docker, Kubernetes, CI/CD, but does not mention SQL skills.
+  [UNSUPPORTED] Bhupender Singh Negi has skills in MongoDB
+  Reason:       The only relevant chunk to Bhupender Singh Negi does not mention any skills or experience with MongoDB.
+----------------------------------------
+
+------------------------------------------------------------
+Per-Query Results
+------------------------------------------------------------
+Query ID:         q001
+Question:         What is Bhupender's educational background?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Negi has completed a B.Tech in Artificial Intelligence and Data Science from Vivekananda Institute of Professional Studies, with graduation expected in 2025. Relevant coursework includ...
+Claims (3):
+  [Y] Bhupender Singh Negi has completed a B.Tech in Artificial Intelligence and Data Science from Vivekananda Institute of Professional Studies.
+      Evidence: doc_test_setup_chunk_17
+      Reason:   The context directly states 'B.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professional 
+      Method:   SLM_JUDGE
+  [Y] Bhupender Singh Negi's graduation is expected in 2025.
+      Evidence: doc_test_setup_chunk_17
+      Reason:   The relevant coursework mentions 'B.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professi
+      Method:   SLM_JUDGE
+  [Y] Relevant coursework includes Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), and Object-Oriented Programming (OOP).
+      Evidence: doc_test_setup_chunk_17
+      Reason:   The context directly mentions relevant coursework including Data Structures & Algorithms, Operating Systems, Database Ma
+      Method:   SLM_JUDGE
+Counts: 3 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q002
+Question:         Where did Bhupender complete his B.Tech degree?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.
+Claims (1):
+  [Y] Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.
+      Evidence: doc_test_setup_chunk_17
+      Reason:   The context mentions 'B.Tech in Artificial Intelligence and Data Science - Vivekananda Institute of Professional Studies
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q003
+Question:         What is Bhupender's current role at JLL?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           BHUPENDER SINGH NEGI's current role at JLL is Analyst.
+Claims (1):
+  [Y] BHUPENDER SINGH NEGI's current role at JLL is Analyst
+      Evidence: doc_test_setup_chunk_5
+      Reason:   The context states that BHUPENDER SINGH NEGI has a current role at JLL as an Analyst.
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q004
+Question:         What was Bhupender's role at Tecraki Tech Solutions?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions, working there from December 2023 to June 2025.
+Claims (2):
+  [Y] Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions
+      Evidence: doc_test_setup_chunk_9
+      Reason:   The context contains a chunk that directly states 'Tecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025'.
+      Method:   SLM_JUDGE
+  [Y] Bhupender Singh Neogi worked there from December 2023 to June 2025
+      Evidence: doc_test_setup_chunk_9
+      Reason:   The relevant chunk states 'Tecraki Tech Solutions - Founding ML Engineer Dec 2023 - Jun 2025' which directly supports th
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q005
+Question:         How much time did the AI Invoice Processing SOP cut processing time?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           The AI Invoice Processing SOP cut the processing time from 9 minutes to 2 minutes.
+Claims (1):
+  [Y] The AI Invoice Processing SOP cut the processing time from 9 minutes to 2 minutes.
+      Evidence: doc_test_setup_chunk_8
+      Reason:   The relevant chunk directly states 'AI Invoice Processing: Analyzed the existing workflow with client stakeholders and d
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q006
+Question:         What is MedTextVision and what was its impact?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI. Its impact is an improvement of entity-extraction F1 by 15% across 10,000+ records.
+Claims (2):
+  [Y] MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI.
+      Evidence: [Source 1]
+•MedTextVision - Document AI: Built a deep-learning OCR pipeline extracting structured data from unstructured
+      Reason:   The context directly states that MedTextVision is a deep-learning OCR pipeline developed by Document AI.
+      Method:   SLM_JUDGE
+  [Y] MedTextVision improves entity-extraction F1 by 15% across 10,000+ records.
+      Evidence: doc_test_setup_chunk_10
+      Reason:   The context directly states 'MedTextVision - Document AI: Built a deep-learning OCR pipeline extracting structured data 
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q007
+Question:         What details are given for the AutoAudit AI system?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           The AutoAudit AI system is designed and built to perform LLM (Large Language Model) agent utility data root-cause analysis across 6 accounts and 1,000+ properties. It replaces one full-time employee (...
+Claims (2):
+  [Y] The AutoAudit AI system is designed and built to perform LLM agent utility data root-cause analysis across 6 accounts and 1,000+ properties.
+      Evidence: doc_test_setup_chunk_7
+      Reason:   The relevant chunk directly supports the claim with the exact details provided.
+      Method:   SLM_JUDGE
+  [Y] It replaces one full-time employee (FTE) per year with same-day automated health checks.
+      Evidence: doc_test_setup_chunk_7
+      Reason:   The context directly states 'AutoAudit AI: Designed and built an LLM agent with tool-calling and MCP-exposed tools for u
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q008
+Question:         What rank did Bhupender finish in the Amazon ML Hackathon?
+Answerable:       True
+Classification:   NO_FACTUAL_CLAIMS
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q009
+Question:         Which international robotics competition did Bhupender represent Team India in?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Negi represented Team India in the RoboCup Japan 2021 international robotics competition.
+Claims (1):
+  [Y] Bhupender Singh Negi represented Team India in the RoboCup Japan 2021 international robotics competition.
+      Evidence: [Source 2]
+Document: test.txt
+Chunk ID: doc_test_setup_chunk_19
+Relevance Score: 0.6451
+AWARDS & CERTIFICATIONS
+•Interna
+      Reason:   The context directly states that Bhupender Singh Negi was an 'International Robotics Representative - Team India, RoboCu
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q010
+Question:         What is Bhupender's contact number and email address?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Neogi's contact number is +91 84480 93891 and his email address is bhupendernegi.ai@gmail.com.
+Claims (2):
+  [Y] Bhupender Singh Neogi's contact number is +91 84480 93891
+      Evidence: doc_test_setup_chunk_0
+      Reason:   The contact number +91 84480 93891 is mentioned in the retrieved context.
+      Method:   SLM_JUDGE
+  [Y] Bhupender Singh Neogi's email address is bhupendernegi.ai@gmail.com
+      Evidence: doc_test_setup_chunk_0: BHUPENDER SINGH NEGI | bhupendernegi.ai@gmail.com
+      Reason:   The email address bhupendernegi.ai@gmail.com is explicitly mentioned in the context.
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q011
+Question:         What certifications does Bhupender hold or is currently working on?
+Answerable:       True
+Classification:   PARTIALLY_GROUNDED
+Retrieved:        test.txt
+Answer:           Bhupender Singh Neogi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.
+Claims (2):
+  [N] Bhupender Singh Neogi holds a Lean Certified (JLL) certification.
+      Evidence: doc_test_setup_chunk_0:6, doc_test_setup_chunk_9:6, doc_test_setup_chunk_20:6
+      Reason:   The context does not mention any certification related to Lean Certified (JLL).
+      Method:   SLM_JUDGE
+  [Y] Bhupender Singh Neogi is working on obtaining a Six Sigma Green Belt certification.
+      Evidence: doc_test_setup_chunk_9
+      Reason:   The context mentions that Bhupender Singh Neogi is 'in progress' with a Six Sigma Green Belt certification.
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 1 unsupported
+----------------------------------------
+Query ID:         q012
+Question:         Which programming languages and databases does Bhupender have skills in?
+Answerable:       True
+Classification:   PARTIALLY_GROUNDED
+Retrieved:        test.txt
+Answer:           Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.
+Claims (3):
+  [Y] Bhupender Singh Negi has skills in Python
+      Evidence: doc_test_setup_chunk_0:Relevance Score: 0.6630
+Chunk: BHUPENDER SINGH NEGI
+Business Technology Solutions | AI/ML Enginee
+      Reason:   The context mentions that Bhupender Singh Negi has skills in Python through a specific project he worked on.
+      Method:   SLM_JUDGE
+  [N] Bhupender Singh Negi has skills in SQL
+      Evidence: doc_test_setup_chunk_0, Relevance Score: 0.6630
+      Reason:   The only relevant chunk mentions his skills in Python, SQL, RDBMS, C++, JavaScript/TypeScript, Node.js, Next.js, FastAPI
+      Method:   SLM_JUDGE
+  [N] Bhupender Singh Negi has skills in MongoDB
+      Evidence: doc_test_setup_chunk_0:Relevance Score: 0.6630
+      Reason:   The only relevant chunk to Bhupender Singh Negi does not mention any skills or experience with MongoDB.
+      Method:   SLM_JUDGE
+Counts: 1 supported / 0 partial / 2 unsupported
+----------------------------------------
+Query ID:         q013
+Question:         Summarize Bhupender's professional experience as a technology professional.
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           BHUPENDER SINGH NEGI is a Business Technology Solutions AI/ML Engineer based in Delhi/NCR, India. He has hands-on experience in translating complex business requirements into effective technical desig...
+Claims (2):
+  [Y] BHUPENDER SINGH NEGI is a Business Technology Solutions AI/ML Engineer based in Delhi/NCR, India.
+      Evidence: doc_test_setup_chunk_0
+      Reason:   The chunk states 'BHUPENDER SINGH NEGI
+Business Technology Solutions | AI/ML Engineer
+Delhi/NCR, India' which directly s
+      Method:   SLM_JUDGE
+  [Y] BHUPENDER SINGH NEGI has hands-on experience in translating complex business requirements into effective technical designs for enterprise clients.
+      Evidence: doc_test_setup_chunk_2
+      Reason:   The chunk states 'Technology solutions professional with hands-on experience translating complex business requirements i
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q014
+Question:         What is the Workday Analyst project details?
+Answerable:       True
+Classification:   GROUNDED
+Retrieved:        test.txt
+Answer:           The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules. A Seman...
+Claims (2):
+  [Y] The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules.
+      Evidence: doc_test_setup_chunk_14
+      Reason:   The claim is directly supported by the relevance score and content of the chunk in doc_test_setup_chunk_14.
+      Method:   SLM_JUDGE
+  [Y] A Semantic Pruning algorithm was designed to prevent token explosion and reduce API overhead.
+      Evidence: doc_test_setup_chunk_14
+      Reason:   The chunk mentions 'designed a Semantic Pruning algorithm to prevent token explosion and reduce API overhead under'.
+      Method:   SLM_JUDGE
+Counts: 2 supported / 0 partial / 0 unsupported
+----------------------------------------
+Query ID:         q015
+Question:         What is the author's current annual salary?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q016
+Question:         What is Bhupender's favorite football team?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q017
+Question:         What are the listed KPIs?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q018
+Question:         What is the late arrival threshold?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q019
+Question:         What is the normal working duration?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+Query ID:         q020
+Question:         What are the submission requirements for the code assignment?
+Answerable:       False
+Classification:   CORRECT_ABSTENTION
+Retrieved:        test.txt
+Answer:           I couldn't find relevant information about that in the uploaded documents.
+Claims:           (none extracted)
+----------------------------------------
+
+============================================================
+CITATION EVALUATION
+------------------------------------------------------------
+
+Total Evaluated Queries: 20
+
+Correct Citations: 0
+Missing Citations: 14
+Wrong Citations: 0
+Unsupported Citations: 0
+Correct Abstentions: 6
+
+Citation Accuracy: 0.00%
+Citation Coverage: 0.00%
+Missing Citation Rate: 100.00%
+Unsupported Citation Rate: 0.00%
+
+FAILED CASES
+------------
+[FAIL]
+Test ID:    q001
+Question:   What is Bhupender's educational background?
+Answer:     Bhupender Singh Negi has completed a B.Tech in Artificial Intelligence and Data Science from Vivekananda Institute of Professional Studies, with graduation expected in 2025. Relevant coursework includes Data Structures & Algorithms, Operating Systems, Database Management Systems (DBMS), and Object-Oriented Programming (OOP).
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q002
+Question:   Where did Bhupender complete his B.Tech degree?
+Answer:     Bhupender Singh Neogi completed his B.Tech degree at Vivekananda Institute of Professional Studies.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q003
+Question:   What is Bhupender's current role at JLL?
+Answer:     BHUPENDER SINGH NEGI's current role at JLL is Analyst. This information is derived from the professional experience chunk in Source 2, which states "Jones Lang LaSalle (JLL) - Analyst Jul 2025 - Present".
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q004
+Question:   What was Bhupender's role at Tecraki Tech Solutions?
+Answer:     Bhupender Singh Neogi was a Founding ML Engineer at Tecraki Tech Solutions, working there from December 2023 to June 2025.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q005
+Question:   How much time did the AI Invoice Processing SOP cut processing time?
+Answer:     The AI Invoice Processing SOP cut the processing time from 9 minutes to 2 minutes.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q006
+Question:   What is MedTextVision and what was its impact?
+Answer:     MedTextVision is a deep-learning OCR (Optical Character Recognition) pipeline developed by Document AI. Its impact is an improvement of entity-extraction F1 by 15% across 10,000+ records.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q007
+Question:   What details are given for the AutoAudit AI system?
+Answer:     The AutoAudit AI system is designed and built to perform LLM (Large Language Model) agent utility data root-cause analysis across 6 accounts and 1,000+ properties. It replaces one full-time employee (FTE) per year with same-day automated health checks (in approval).
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q008
+Question:   What rank did Bhupender finish in the Amazon ML Hackathon?
+Answer:     Bhupender Singh Negi finished in the 3rd position in the Amazon ML Hackathon 2024.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q009
+Question:   Which international robotics competition did Bhupender represent Team India in?
+Answer:     Bhupender Singh Neogi represented Team India in the RoboCup Japan 2021 international robotics competition.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q010
+Question:   What is Bhupender's contact number and email address?
+Answer:     Bhupender Singh Neogi's contact number is +91 84480 93891 and his email address is bhupendernegi.ai@gmail.com.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q011
+Question:   What certifications does Bhupender hold or is currently working on?
+Answer:     Bhupender Singh Neogi holds a Lean Certified (JLL) certification, which he has completed. He is also working on obtaining a Six Sigma Green Belt certification.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q012
+Question:   Which programming languages and databases does Bhupender have skills in?
+Answer:     Based on the provided context, Bhupender Singh Negi has skills in Python, SQL, and MongoDB. The context does not specify any skills in databases other than MongoDB.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q013
+Question:   Summarize Bhupender's professional experience as a technology professional.
+Answer:     BHUPENDER SINGH NEGI is a Business Technology Solutions AI/ML Engineer based in Delhi/NCR, India. He has hands-on experience in translating complex business requirements into effective technical designs for enterprise clients.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
+[FAIL]
+Test ID:    q014
+Question:   What is the Workday Analyst project details?
+Answer:     The Workday Analyst project involved architecting a GenAI knowledge framework using Python, RAG, MCP, and Workday APIs to streamline retrieval across 500+ APIs spanning 10 operational modules. A Semantic Pruning algorithm was also designed to prevent token explosion and reduce API overhead.
+Citation:   None
+Reason:     Factual answer was generated but no citations were present.
+----------------------------------------
