@@ -21,6 +21,8 @@ Vector_DB_Chat_Test/
 Chroma_Integration_Test/
 Uploaded_document/
 Uploaded_document_Chat_Test/
+evaluation/
+tests/
 
 # OS / IDE generated
 .DS_Store
